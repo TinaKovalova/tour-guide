@@ -13,7 +13,7 @@
         <header class="header header--light">
             <div class="header__container">
                 <span class="header__logo">tour guide</span>
-                <nav class="header__navigation navigation">
+                <nav class="header__navigation navigation" data-da=".burger-menu,991.98, 1">
                     <ul class="navigation__menu">
                         <li class="navigation__menu-item">
                             <a href="#" class="navigation__menu-link">Home</a>
@@ -32,15 +32,19 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="header__actions">
-                    <a href="#" class="header__actions-link button button--yellow">sign In</a>
+                <div class="actions" data-da=".burger-menu,991.98,0">
+                    <a href="#" class="actions__button button button--yellow">sign In</a>
+
                 </div>
+                <button class="burger-button"></button>
             </div>
+            <div class="burger-menu"></div>
         </header>
         <main class="page"></main>
         <footer class="footer"></footer>
     </div>
-
+    <script src="js/dynamic_adapt.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
