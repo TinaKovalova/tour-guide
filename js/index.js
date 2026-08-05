@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
      window.addEventListener("load", () => {
-        const headerHeight = getComputedStyle(header).getPropertyValue("height");
-        menu.style.setProperty(
+         const headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
+         document.documentElement.style.setProperty(
          "--header-height",
          `${parseFloat(headerHeight) / 16}rem`,
        );

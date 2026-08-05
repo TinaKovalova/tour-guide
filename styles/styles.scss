@@ -3,6 +3,9 @@
 @import "reset";
 @import "variables";
 @import "mixins";
+:root {
+    --header-height: 0;
+}
 
 html {
     scroll-behavior: smooth;

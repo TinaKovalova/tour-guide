@@ -1,0 +1,96 @@
+.hero {
+    height: 100svh;
+    display: flex;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // .hero__container
+
+    &__container {
+        padding-block-start: var(--header-height);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .hero__content-wrapper
+
+    &__content-wrapper {
+        width: 100%;
+        position: relative;
+        flex-grow: 1;
+        background: url("../assets/images/hero/hero__bg.jpg") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    //hero__video
+    &__video {
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: aqua;
+    }
+
+    // .hero__section-header
+
+    &__section-header {
+        max-width: toRem(737);
+        &.section-header .section-header__text {
+            max-width: toRem(569);
+        }
+        &:not(:last-child) {
+            margin-block-end: toRem(18);
+        }
+    }
+
+    // .hero__play-button
+
+    &__play-button {
+        flex-shrink: 0;
+        text-transform: capitalize;
+        color: $mainDarkColor;
+        font-size: toRem(20);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        column-gap: toRem(10);
+    }
+
+    // .hero__play-button-icon
+
+    &__play-button-icon {
+        display: inline-block;
+        width: toRem(100);
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // .hero__search-form
+
+    &__search-form {
+        position: relative;
+        flex-basis: toRem(90);
+        min-height: toRem(90);
+        margin-top: toRem(-45);
+    }
+}
+
+.search-form {
+    padding-block: toRem(18);
+    padding-inline: toRem(20);
+    border-radius: toRem(10);
+    width: 73.5294%; /* 1000/1360 */
+    box-shadow: toRem(0) toRem(10) toRem(30) toRem(0) rgba(123, 188, 176, 0.5);
+    background: $whiteColor;
+    // .search-form__button
+
+    &__button {
+    }
+}

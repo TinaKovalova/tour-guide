@@ -238,6 +238,10 @@ textarea {
           appearance: none;
 }
 
+:root {
+  --header-height: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -326,6 +330,47 @@ body {
   background-color: #ffffff;
 }
 
+.section-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 1.1875rem;
+}
+.section-header.section-header--main {
+  row-gap: 1.375rem;
+}
+.section-header__title {
+  font-family: "Volkhov", serif;
+  color: #1c2b38;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.section-header--main .section-header__title {
+  font-size: 3rem;
+  text-shadow: 0rem 0.3125rem 0.8125rem 0rem rgba(255, 255, 255, 0.4);
+}
+.section-header__text {
+  font-size: 1rem;
+  line-height: 1.56;
+  color: #778088;
+}
+.section-header--main .section-header__text {
+  text-shadow: 0 1px 20px 0 #fff;
+  color: #1c2b38;
+}
+.section-header.section-header--centered {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
 .header {
   position: fixed;
   z-index: 100;
@@ -341,7 +386,6 @@ body {
   z-index: 1;
   inset-inline-start: 0;
   inset-block-start: 0;
-  background-color: #7bbcb0;
 }
 .header.header--light {
   color: #ffffff;
@@ -511,7 +555,6 @@ body {
 }
 
 .burger-menu {
-  --header-height: 0;
   background-color: #7bbcb0;
   min-width: 50%;
   height: 100svh;
@@ -554,4 +597,116 @@ body {
   .burger-menu {
     min-width: 100%;
   }
+}
+
+.hero {
+  height: 100svh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: auto;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hero__container {
+  -webkit-padding-before: var(--header-height);
+          padding-block-start: var(--header-height);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hero__content-wrapper {
+  width: 100%;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: url("../assets/images/hero/hero__bg.jpg") center/cover no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.hero__video {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero__section-header {
+  max-width: 46.0625rem;
+}
+.hero__section-header.section-header .section-header__text {
+  max-width: 35.5625rem;
+}
+.hero__section-header:not(:last-child) {
+  -webkit-margin-after: 1.125rem;
+          margin-block-end: 1.125rem;
+}
+.hero__play-button {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  text-transform: capitalize;
+  color: #1c2b38;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+}
+.hero__play-button-icon {
+  display: inline-block;
+  width: 6.25rem;
+  aspect-ratio: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.hero__search-form {
+  position: relative;
+  -ms-flex-preferred-size: 5.625rem;
+      flex-basis: 5.625rem;
+  min-height: 5.625rem;
+  margin-top: -2.8125rem;
+}
+
+.search-form {
+  padding-block: 1.125rem;
+  padding-inline: 1.25rem;
+  border-radius: 0.625rem;
+  width: 73.5294%; /* 1000/1360 */
+  -webkit-box-shadow: 0rem 0.625rem 1.875rem 0rem rgba(123, 188, 176, 0.5);
+          box-shadow: 0rem 0.625rem 1.875rem 0rem rgba(123, 188, 176, 0.5);
+  background: #ffffff;
 }/*# sourceMappingURL=styles.css.map */
