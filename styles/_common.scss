@@ -1,0 +1,37 @@
+.button {
+    flex-shrink: 0;
+    padding-block: toRem(13);
+    padding-inline: toRem(42);
+    text-transform: capitalize;
+    font-size: toRem(16);
+    line-height: 1.375;
+    font-weight: 800;
+    border-radius: toRem(3);
+    border: toRem(1) solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button--icon {
+    display: flex;
+    column-gap: toRem(10);
+}
+
+.button--oval {
+    border-radius: toRem(40);
+}
+.button--yellow {
+    color: $mainDarkColor;
+    background-color: $yellowColor;
+}
+.button--mint {
+    color: $whiteColor;
+    background-color: $mintColor;
+}
+.button--gray {
+    color: $whiteColor;
+    background-color: $darkColor-80;
+}
+.button--white {
+    background-color: $whiteColor;
+}

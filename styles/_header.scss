@@ -1,0 +1,91 @@
+.header {
+    background-color: $mintColor;
+    position: fixed;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    min-width: 100%;
+    &.header--light {
+        color: $whiteColor;
+    }
+    &.header--dark {
+        color: $darkColor-80;
+    }
+    // .header__container
+
+    &__container {
+        display: flex;
+        align-items: center;
+        column-gap: toRem(40);
+        padding-block: toRem(20);
+    }
+
+    // .header__logo
+
+    &__logo {
+        font-family: "Nico-Moji", sans-serif;
+        font-weight: 400;
+        font-size: toRem(26);
+        line-height: 0.85em;
+    }
+
+    // .header__navigation
+
+    &__navigation {
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    // .header__actions
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    // .header__actions-link
+
+    &__actions-link {
+    }
+}
+.navigation {
+    display: flex;
+    align-items: center;
+    // .navigation__menu
+
+    &__menu {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: toRem(20) toRem(30);
+    }
+
+    // .navigation__menu-item
+
+    &__menu-item {
+        font-size: toRem(15);
+        line-height: 1.47;
+        text-transform: capitalize;
+        flex-shrink: 0;
+    }
+
+    // .navigation__menu-link
+
+    &__menu-link {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            inset-inline-start: 0;
+            inset-block-start: 100%;
+            width: 0;
+            height: toRem(1);
+            background-color: currentColor;
+            transition: width 0.3s ease-in-out;
+        }
+        @media (any-hover: hover) {
+            &:hover::before {
+                width: 100%;
+            }
+        }
+    }
+}
