@@ -1,7 +1,6 @@
 .hero {
-    height: 100svh;
+    min-height: 100svh;
     display: flex;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,10 +133,11 @@
     &__search-form {
         position: relative;
         min-height: toRem(90);
-        margin-top: toRem(-45);
+
         width: 100%;
         @media (min-width: toRem(992)) {
             width: max(69.4444vw, toRem(1000)); /* 1000/1440 */
+            margin-top: toRem(-45);
         }
     }
 }

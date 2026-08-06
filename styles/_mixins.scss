@@ -107,3 +107,21 @@
 		}
 	}
 }
+@mixin hover-line {
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block-start: 100%;
+		width: 0;
+		height: toRem(1);
+		background-color: currentColor;
+		transition: width 0.3s ease-in-out;
+	}
+	@media (any-hover: hover) {
+		&:hover::before {
+			width: 100%;
+		}
+	}
+}

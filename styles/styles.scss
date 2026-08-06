@@ -27,10 +27,11 @@ body {
 }
 
 [class$="__container"] {
-    max-width: toRem($maxWidthContainer); //1380
+    max-width: toRem($maxWidthContainer); //1190
     padding-inline: toRem($containerPadding);
     margin: 0 auto;
 }
+
 @import "common";
 @import "header";
 @import "main";

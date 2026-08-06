@@ -1,0 +1,221 @@
+.footer {
+    background-color: #13253f;
+    color: $darkColor-60;
+    font-size: toRem(15);
+    line-height: 1.267; /* 19/15 */
+
+    // .footer__container
+
+    &__container {
+        display: flex;
+    }
+    // .footer__top
+    &__top {
+        & .footer__container {
+            padding-block-start: clamp(2.5rem, 1.7857rem + 3.5714vw, 5rem); /* 80/40>1440-320 */
+            padding-block-end: clamp(2.5rem, 1.4107rem + 5.4464vw, 6.3125rem); /* 101/40>1440-320 */
+            gap: toRem(30);
+        }
+    }
+
+    // .footer__actions-form
+
+    &__actions-form {
+    }
+
+    // .footer__main-menu
+
+    &__main-menu {
+        flex-grow: 1;
+    }
+
+    // .footer__main-menu-list
+
+    &__main-menu-list {
+        display: flex;
+        justify-content: space-evenly;
+        gap: toRem(30);
+    }
+
+    // .footer__main-menu-item
+
+    &__main-menu-item &__block-header {
+        margin-block-end: toRem(11);
+    }
+
+    // .footer__block-header.
+    &__block-header {
+    }
+
+    &__block-header,
+    [class$="__block-header"] {
+        color: rgba($color: $whiteColor, $alpha: 0.8);
+        font-weight: 700;
+    }
+
+    // .footer__sub-menu-list
+
+    &__sub-menu-list {
+    }
+
+    // .footer__sub-menu-item
+
+    &__sub-menu-item {
+        &:not(:last-child) {
+            margin-block-end: toRem(11);
+        }
+    }
+
+    // .footer__sub-menu-link
+
+    &__sub-menu-link {
+        @include hover-line;
+        text-transform: capitalize;
+    }
+
+    // .footer__info
+
+    &__info {
+        flex-basis: toRem(220);
+        max-width: toRem(220);
+        & > *:not(:last-child) {
+            margin-block-end: toRem(26);
+        }
+    }
+
+    // .footer__info-row
+
+    &__info-row:has(.footer__payment-methods) &__block-header {
+        margin-block-end: toRem(20);
+    }
+    &__info-row:has(.footer__about-company-text) &__block-header {
+        margin-block-end: toRem(8);
+    }
+
+    // .footer__payment-methods
+
+    &__payment-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: toRem(5);
+    }
+
+    // .footer__payment-methods-item
+
+    &__payment-methods-item {
+        width: toRem(39.87);
+        aspect-ratio: 39.87 / 26;
+        border-radius: toRem(5);
+        overflow: hidden;
+    }
+
+    // .footer__payment-methods-image
+
+    &__payment-methods-image {
+        width: 100%;
+        min-height: 100%;
+        aspect-ratio: 39.87 / 26;
+        object-fit: contain;
+    }
+
+    // .footer__about-company-text
+
+    &__about-company-text {
+    }
+
+    // .footer__bottom
+
+    &__bottom {
+        background-color: rgb(#000000, 0.2);
+        & .footer__container {
+            flex-wrap: wrap-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: toRem(20);
+            padding-block: toRem(10);
+        }
+    }
+
+    // .footer__copyright
+
+    &__copyright {
+        flex-grow: 1;
+    }
+
+    // .footer__socials
+
+    &__socials {
+    }
+}
+.actions-form {
+    // .actions-form__row
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        row-gap: toRem(10);
+    }
+
+    // .actions-form__block-header
+
+    &__block-header {
+    }
+
+    // .actions-form__select
+
+    &__select {
+    }
+}
+.socials {
+    display: flex;
+    gap: toRem(10);
+
+    // .socials__item
+
+    &__item {
+        width: toRem(40);
+        height: toRem(40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        border-radius: 50%;
+        color: $whiteColor;
+        font-size: toRem(18.18);
+        &.socials__item--facebook {
+            background-color: #4b69b1;
+        }
+        &.socials__item--twitter {
+            background-color: #37b1e2;
+        }
+        &.socials__item--instagram {
+            background-color: #c23772;
+        }
+        &.socials__item--pinterest {
+            background-color: #e83f3a;
+        }
+        @media (any-hover: hover) {
+            &:hover .socials__link::before {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+
+    // .socials__link
+
+    &__link {
+        &::before {
+            vertical-align: middle;
+            transition: transform 0.5s ease-in-out;
+        }
+    }
+}
+.icon-facebook {
+}
+.icon-twitter {
+}
+.icon-instagram {
+}
+.icon-pinterest {
+}

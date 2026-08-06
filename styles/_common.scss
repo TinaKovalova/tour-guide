@@ -11,29 +11,46 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.button--icon {
-    display: flex;
-    column-gap: toRem(10);
-}
+    position: relative;
+    transition: all 0.3s ease;
 
-.button--oval {
-    border-radius: toRem(40);
-}
-.button--yellow {
-    color: $mainDarkColor;
-    background-color: $yellowColor;
-}
-.button--mint {
-    color: $whiteColor;
-    background-color: $mintColor;
-}
-.button--gray {
-    color: $whiteColor;
-    background-color: $darkColor-80;
-}
-.button--white {
-    background-color: $whiteColor;
+    &.button--icon {
+        display: flex;
+        column-gap: toRem(10);
+    }
+
+    &.button--oval {
+        border-radius: toRem(40);
+    }
+    &.button--yellow {
+        color: $mainDarkColor;
+        background-color: $yellowColor;
+    }
+    &.button--mint {
+        color: $whiteColor;
+        background-color: $mintColor;
+    }
+    &.button--gray {
+        color: $whiteColor;
+        background-color: $darkColor-80;
+    }
+    &.button--white {
+        background-color: $whiteColor;
+    }
+
+    @media (any-hover: hover) {
+        &.button--yellow:hover {
+            background-color: #fbcd02;
+        }
+        &.button--mint:hover {
+            background-color: #4bb3a0;
+        }
+        &.button--gray:hover {
+            background-color: #39424a;
+        }
+        &.button--white:hover {
+        }
+    }
 }
 
 .section-header {
