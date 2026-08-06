@@ -15,14 +15,20 @@
 }
 [class^=icon-],
 [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+}
+[class^=icon-]::before,
+[class*=" icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+}
+[class^=icon-],
+[class*=" icon-"] {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -762,18 +768,112 @@ body {
 }
 .hero__search-form {
   position: relative;
-  -ms-flex-preferred-size: 5.625rem;
-      flex-basis: 5.625rem;
   min-height: 5.625rem;
   margin-top: -2.8125rem;
+  width: 100%;
+}
+@media (min-width: 62rem) {
+  .hero__search-form {
+    width: max(69.4444vw, 62.5rem); /* 1000/1440 */
+  }
 }
 
 .search-form {
   padding-block: 1.125rem;
-  padding-inline: 1.25rem;
+  padding-inline: clamp(0.625rem, 0.4464rem + 0.8929vw, 1.25rem);
   border-radius: 0.625rem;
-  width: 73.5294%; /* 1000/1360 */
   -webkit-box-shadow: 0rem 0.625rem 1.875rem 0rem rgba(123, 188, 176, 0.5);
           box-shadow: 0rem 0.625rem 1.875rem 0rem rgba(123, 188, 176, 0.5);
   background: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: clamp(0.625rem, 0.4464rem + 0.8929vw, 1.25rem) 1.25rem; /* 20/10>1440-320 */
+}
+@media (max-width: 61.99875rem) {
+  .search-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.search-form__cell {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  position: relative;
+  -webkit-padding-end: 0.625rem;
+          padding-inline-end: 0.625rem;
+  color: #7bbcb0;
+  font-size: 0.9375rem;
+  line-height: 1.667;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+}
+.search-form__cell:not(:last-of-type)::after {
+  content: "";
+  width: 95%;
+  height: 0.0625rem;
+  background-color: #e8eaeb;
+  position: absolute;
+  inset-inline-end: 50%;
+  inset-block-end: 0;
+  -webkit-transform: translateX(50%);
+      -ms-transform: translateX(50%);
+          transform: translateX(50%);
+}
+@media (min-width: 62rem) {
+  .search-form__cell:has(#location) {
+    -ms-flex-preferred-size: 20.5625rem;
+        flex-basis: 20.5625rem;
+  }
+  .search-form__cell:has(#guests) {
+    -ms-flex-preferred-size: 15rem;
+        flex-basis: 15rem;
+  }
+  .search-form__cell:has(#tour-date) {
+    -ms-flex-preferred-size: 12.5rem;
+        flex-basis: 12.5rem;
+  }
+  .search-form__cell:not(:last-of-type)::after {
+    content: "";
+    width: 0.0625rem;
+    height: 1.25rem;
+    inset-inline-end: 0;
+    inset-block-end: auto;
+    inset-block-start: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+.search-form__label {
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.search-form__input {
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.786; /* 25/14 */
+}
+.search-form__button {
+  -webkit-box-shadow: 0 0.5rem 1.25rem 0 rgba(255, 218, 50, 0.5);
+          box-shadow: 0 0.5rem 1.25rem 0 rgba(255, 218, 50, 0.5);
+  padding-block: 0.9375rem;
+}
+@media (min-width: 62rem) {
+  .search-form__button {
+    -ms-flex-preferred-size: 9.375rem;
+        flex-basis: 9.375rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

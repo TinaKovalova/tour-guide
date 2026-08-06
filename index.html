@@ -68,6 +68,25 @@
                     </div>
                 </div>
                 <form action="#" class="hero__search-form search-form" name="search-form" method="get">
+                    <div class="search-form__cell icon-location">
+                        <label for="location" class="search-form__label ">
+                            Location
+                            <input type="search" id="location" name="location" class="search-form__input"
+                                autocomplete="off" placeholder="Search For A Destination">
+                        </label>
+                    </div>
+                    <div class="search-form__cell icon-guests ">
+                        <label for="guests" class="search-form__label ">gests
+                            <input type="number" id="guests" name="guests" class="search-form__input" autocomplete="off"
+                                placeholder="How many Guests?">
+                        </label>
+                    </div>
+                    <div class="search-form__cell icon-calendar">
+                        <label for="tour-date" class="search-form__label ">date
+                            <input type="text" id="tour-date" name="tour-date" class="search-form__input"
+                                autocomplete="off" placeholder="Pick a date">
+                        </label>
+                    </div>
                     <button type="submit" class="search-form__button button button--oval button--yellow">Search</button>
                 </form>
             </section>
