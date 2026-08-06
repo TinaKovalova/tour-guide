@@ -346,14 +346,16 @@ body {
 .section-header__title {
   font-family: "Volkhov", serif;
   color: #1c2b38;
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 1.6071rem + 0.7143vw, 2.25rem); /* 36/28>1440-320 */
   line-height: 1.2;
   font-weight: 700;
   text-transform: capitalize;
+  text-wrap: balance;
 }
 .section-header--main .section-header__title {
-  font-size: 3rem;
-  text-shadow: 0rem 0.3125rem 0.8125rem 0rem rgba(255, 255, 255, 0.4);
+  font-size: clamp(2.375rem, 2.1964rem + 0.8929vw, 3rem); /* 48/38>1440-320 */
+  line-height: 1.29;
+  text-shadow: 0 0.3125rem 0.8125rem rgba(255, 255, 255, 0.4);
 }
 .section-header__text {
   font-size: 1rem;
@@ -361,7 +363,7 @@ body {
   color: #778088;
 }
 .section-header--main .section-header__text {
-  text-shadow: 0 1px 20px 0 #fff;
+  text-shadow: 0 0.0625rem 1.25rem #ffffff;
   color: #1c2b38;
 }
 .section-header.section-header--centered {
@@ -615,8 +617,8 @@ body {
           align-items: center;
 }
 .hero__container {
-  -webkit-padding-before: var(--header-height);
-          padding-block-start: var(--header-height);
+  -webkit-margin-before: calc(-1 * var(--header-height) + 3.5rem);
+          margin-block-start: calc(-1 * var(--header-height) + 3.5rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -629,6 +631,8 @@ body {
           align-items: center;
 }
 .hero__content-wrapper {
+  -webkit-padding-before: var(--header-height);
+          padding-block-start: var(--header-height);
   width: 100%;
   position: relative;
   -webkit-box-flex: 1;
@@ -644,6 +648,20 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+}
+.hero__content-wrapper::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 4.375rem;
+  inset-inline-start: 0;
+  -webkit-transform: translateX(-29.60452%);
+      -ms-transform: translateX(-29.60452%);
+          transform: translateX(-29.60452%); /* -262/885 */
+  width: 76.875%; /* 1107/1440 */
+  aspect-ratio: 1107/589;
+  border-radius: 100%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(13, 98, 103, 0.4) 0%, rgba(13, 98, 103, 0) 100%);
 }
 .hero__video {
   position: absolute;
@@ -737,6 +755,10 @@ body {
   -webkit-transform: translateX(12%);
       -ms-transform: translateX(12%);
           transform: translateX(12%);
+}
+.hero__play-button-text {
+  line-height: 1.25; /* 25/20 */
+  font-weight: 700;
 }
 .hero__search-form {
   position: relative;

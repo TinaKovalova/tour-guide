@@ -48,13 +48,15 @@
     &__title {
         font-family: "Volkhov", serif;
         color: $mainDarkColor;
-        font-size: toRem(36);
+        font-size: clamp(1.75rem, 1.6071rem + 0.7143vw, 2.25rem); /* 36/28>1440-320 */
         line-height: 1.2;
         font-weight: 700;
         text-transform: capitalize;
+        text-wrap: balance;
         .section-header--main & {
-            font-size: toRem(48);
-            text-shadow: toRem(0) toRem(5) toRem(13) toRem(0) rgba(255, 255, 255, 0.4);
+            font-size: clamp(2.375rem, 2.1964rem + 0.8929vw, 3rem); /* 48/38>1440-320 */
+            line-height: 1.29;
+            text-shadow: 0 toRem(5) toRem(13) rgba(255, 255, 255, 0.4);
         }
     }
 
@@ -65,7 +67,7 @@
         line-height: 1.56;
         color: $darkColor-60;
         .section-header--main & {
-            text-shadow: 0 1px 20px 0 #fff;
+            text-shadow: 0 toRem(1) toRem(20) $whiteColor;
             color: $mainDarkColor;
         }
     }
