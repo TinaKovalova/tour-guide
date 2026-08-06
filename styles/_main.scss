@@ -70,6 +70,47 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 50%;
+        position: relative;
+        &::before,
+        &::after {
+            content: "";
+            aspect-ratio: 1;
+            border-radius: inherit;
+            position: absolute;
+            z-index: 0;
+            inset-inline-start: 50%;
+            inset-block-start: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        }
+        &::before {
+            width: 100%;
+        }
+        &::after {
+            width: 71.43%;
+        }
+    }
+    //hero__play-button-image
+    &__play-button-image {
+        font-size: toRem(11);
+        width: 42.86%;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: $mintColor;
+        background-color: $whiteColor;
+        position: relative;
+        z-index: 1;
+        &::before {
+            transform: translateX(12%);
+        }
+    }
+
+    //hero__play-button-text
+    &__play-button-text {
     }
 
     // .hero__search-form
