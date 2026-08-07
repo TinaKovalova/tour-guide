@@ -399,9 +399,9 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 1;
   inset-inline-start: 0;
   inset-block-start: 0;
+  z-index: 1;
 }
 .header.header--light {
   color: #ffffff;
@@ -631,8 +631,8 @@ body {
           align-items: center;
 }
 .hero__container {
-  -webkit-margin-before: calc(-1 * var(--header-height) + 3.5rem);
-          margin-block-start: calc(-1 * var(--header-height) + 3.5rem);
+  -webkit-margin-before: calc(-1 * var(--header-height) + 3.125rem);
+          margin-block-start: calc(-1 * var(--header-height) + 3.125rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -691,8 +691,8 @@ body {
   max-width: 35.5625rem;
 }
 .hero__section-header:not(:last-child) {
-  -webkit-margin-after: 1.125rem;
-          margin-block-end: 1.125rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 .hero__play-button {
   -ms-flex-negative: 0;
@@ -824,9 +824,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 0.625rem;
-     -moz-column-gap: 0.625rem;
-          column-gap: 0.625rem;
+  -webkit-column-gap: 0.65625rem;
+     -moz-column-gap: 0.65625rem;
+          column-gap: 0.65625rem;
 }
 .search-form__cell:not(:last-of-type)::after {
   content: "";
@@ -844,10 +844,11 @@ body {
   .search-form__cell:has(#location) {
     -ms-flex-preferred-size: 20.5625rem;
         flex-basis: 20.5625rem;
+    min-width: 34.2708%; /* 329/960 */
   }
   .search-form__cell:has(#guests) {
-    -ms-flex-preferred-size: 15rem;
-        flex-basis: 15rem;
+    -ms-flex-preferred-size: 13.9375rem;
+        flex-basis: 13.9375rem;
   }
   .search-form__cell:has(#tour-date) {
     -ms-flex-preferred-size: 12.5rem;
@@ -870,9 +871,23 @@ body {
   text-transform: capitalize;
 }
 .search-form__input {
-  font-style: italic;
   font-weight: 600;
   line-height: 1.786; /* 25/14 */
+}
+.search-form__input::-webkit-input-placeholder {
+  font-style: italic;
+}
+.search-form__input::-moz-placeholder {
+  font-style: italic;
+}
+.search-form__input:-ms-input-placeholder {
+  font-style: italic;
+}
+.search-form__input::-ms-input-placeholder {
+  font-style: italic;
+}
+.search-form__input::placeholder {
+  font-style: italic;
 }
 .search-form__button {
   -webkit-box-shadow: 0 0.5rem 1.25rem 0 rgba(255, 218, 50, 0.5);
@@ -1011,6 +1026,10 @@ body {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+.actions-form {
+  -ms-flex-preferred-size: 13.125rem;
+      flex-basis: 13.125rem;
+}
 .actions-form__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1021,6 +1040,131 @@ body {
           flex-direction: column;
   row-gap: 0.625rem;
 }
+.actions-form__row:not(:last-child) {
+  -webkit-margin-after: 0.75rem;
+          margin-block-end: 0.75rem;
+}
+.actions-form__select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0.1875rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  background-color: #13253f;
+  padding-block: 0.8125rem;
+  -webkit-padding-start: 1.1875rem;
+          padding-inline-start: 1.1875rem;
+  -webkit-padding-end: 0.875rem;
+          padding-inline-end: 0.875rem;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.actions-form__select:focus {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+@media (any-hover: hover) {
+  .actions-form__select:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+@supports not ((-webkit-appearance: base-select) or (-moz-appearance: base-select) or (appearance: base-select)) {
+  .actions-form__select {
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    background: url("../assets/images/icons/dropdown-arrow.svg") 92% center/0.601875rem 0.3625rem no-repeat;
+  }
+}
+@supports ((-webkit-appearance: base-select) or (-moz-appearance: base-select) or (appearance: base-select)) {
+  .actions-form__select {
+    background: none;
+  }
+  .actions-form__select, .actions-form__select::picker(select) {
+    -webkit-appearance: base-select;
+       -moz-appearance: base-select;
+            appearance: base-select;
+    background-color: #13253f;
+    color: inherit;
+    will-change: background, border-color, color;
+  }
+  .actions-form__select:open, .actions-form__select::picker(select):open {
+    color: #ffffff;
+    border-color: currentColor;
+  }
+  @media (any-hover: hover) {
+    .actions-form__select:hover, .actions-form__select::picker(select):hover {
+      color: #ffffff;
+    }
+    .actions-form__select:hover::picker-icon, .actions-form__select::picker(select):hover::picker-icon {
+      background: #ffffff;
+    }
+  }
+  .actions-form__select::picker(select) {
+    border-radius: 0.1875rem;
+    top: anchor(100%);
+    left: anchor(0);
+    opacity: 0;
+    -webkit-transition: all 0.4s allow-discrete;
+    transition: all 0.4s allow-discrete;
+  }
+  .actions-form__select:open::picker(select) {
+    opacity: 1;
+  }
+  @starting-style {
+    .actions-form__select:open::picker(select) {
+      opacity: 0;
+    }
+  }
+  .actions-form__select::picker-icon {
+    color: inherit;
+    width: 1.25rem;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    content: "";
+    background: currentColor;
+    -webkit-mask: url("../assets/images/icons/dropdown-arrow.svg") center/100% no-repeat;
+            mask: url("../assets/images/icons/dropdown-arrow.svg") center/100% no-repeat;
+  }
+  .actions-form__select:open::picker-icon {
+    -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+  .actions-form__select selectedcontent,
+  .actions-form__select option {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 0.1875rem;
+       -moz-column-gap: 0.1875rem;
+            column-gap: 0.1875rem;
+  }
+  .actions-form__select option {
+    padding-block: 0.8125rem;
+    -webkit-padding-start: 1.1875rem;
+            padding-inline-start: 1.1875rem;
+    -webkit-padding-end: 0.875rem;
+            padding-inline-end: 0.875rem;
+  }
+  .actions-form__select option::checkmark {
+    display: none;
+  }
+  .actions-form__select .actions-form__option-icon {
+    width: 1.25rem;
+    aspect-ratio: 20/13.17;
+  }
+}
+
 .socials {
   display: -webkit-box;
   display: -ms-flexbox;

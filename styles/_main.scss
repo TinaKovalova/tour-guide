@@ -8,7 +8,7 @@
     // .hero__container
 
     &__container {
-        margin-block-start: calc(-1 * var(--header-height) + toRem(56));
+        margin-block-start: calc(-1 * var(--header-height) + toRem(50));
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -57,7 +57,7 @@
             max-width: toRem(569);
         }
         &:not(:last-child) {
-            margin-block-end: toRem(18);
+            margin-block-end: toRem(16);
         }
     }
 
@@ -165,7 +165,7 @@
         font-size: toRem(15);
         line-height: 1.667;
         display: flex;
-        column-gap: toRem(10);
+        column-gap: toRem(10.5);
         &:not(:last-of-type) {
             &::after {
                 content: "";
@@ -181,9 +181,11 @@
         @media (min-width: toRem(992)) {
             &:has(#location) {
                 flex-basis: toRem(329);
+                min-width: 34.2708%; /* 329/960 */
             }
             &:has(#guests) {
-                flex-basis: toRem(240);
+                flex-basis: toRem(223);
+                // min-width: 23.9583%; /* 230/960 */
             }
             &:has(#tour-date) {
                 flex-basis: toRem(200);
@@ -212,9 +214,11 @@
     // .search-form__input
 
     &__input {
-        font-style: italic;
         font-weight: 600;
         line-height: 1.786; /* 25/14 */
+        &::placeholder {
+            font-style: italic;
+        }
     }
 
     // .search-form__button

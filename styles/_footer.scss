@@ -148,12 +148,16 @@
     }
 }
 .actions-form {
+    flex-basis: toRem(210);
     // .actions-form__row
 
     &__row {
         display: flex;
         flex-direction: column;
         row-gap: toRem(10);
+        &:not(:last-child) {
+            margin-block-end: toRem(12);
+        }
     }
 
     // .actions-form__block-header
@@ -164,6 +168,98 @@
     // .actions-form__select
 
     &__select {
+        appearance: none;
+        border-radius: toRem(3);
+        border: toRem(1) solid rgba($color: $whiteColor, $alpha: 0.2);
+        background-color: #13253f;
+        padding-block: toRem(13);
+        padding-inline-start: toRem(19);
+        padding-inline-end: toRem(14);
+        transition: all 0.4s ease;
+        &:focus {
+            color: $whiteColor;
+            border-color: $whiteColor;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                border-color: $whiteColor;
+                color: $whiteColor;
+            }
+        }
+        @supports not (appearance: base-select) {
+            color: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            background: url("../assets/images/icons/dropdown-arrow.svg") 92% center / toRem(9.63) toRem(5.8) no-repeat;
+        }
+        @supports (appearance: base-select) {
+            background: none;
+            &,
+            &::picker(select) {
+                appearance: base-select;
+                background-color: #13253f;
+                color: inherit;
+                will-change: background, border-color, color;
+                &:open {
+                    color: $whiteColor;
+                    border-color: currentColor;
+                }
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: $whiteColor;
+                    }
+                    &:hover::picker-icon {
+                        background: $whiteColor;
+                    }
+                }
+            }
+            &::picker(select) {
+                border-radius: toRem(3);
+                top: anchor(100%);
+                left: anchor(0);
+                opacity: 0;
+                transition: all 0.4s allow-discrete;
+            }
+            &:open::picker(select) {
+                opacity: 1;
+                @starting-style {
+                    opacity: 0;
+                }
+            }
+
+            &::picker-icon {
+                color: inherit;
+                width: toRem(20);
+                transform-origin: center;
+                transition: transform 0.4s ease;
+                content: "";
+                background: currentColor;
+                mask: url("../assets/images/icons/dropdown-arrow.svg") center/100% no-repeat;
+            }
+            &:open::picker-icon {
+                transform: rotate(-180deg);
+            }
+
+            selectedcontent,
+            option {
+                display: flex;
+                align-items: center;
+                column-gap: toRem(3);
+            }
+            option {
+                padding-block: toRem(13);
+                padding-inline-start: toRem(19);
+                padding-inline-end: toRem(14);
+            }
+            option::checkmark {
+                display: none;
+            }
+
+            & .actions-form__option-icon {
+                width: toRem(20);
+                aspect-ratio: 20 / 13.17;
+            }
+        }
     }
 }
 .socials {
