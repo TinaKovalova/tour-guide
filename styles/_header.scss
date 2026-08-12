@@ -138,10 +138,16 @@
     padding-inline: toRem(30);
     padding-block-start: var(--header-height);
     padding-block-end: toRem(30);
+    transform: translateX(100%);
+    opacity: 0;
     overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
+    transition:
+        opacity 0.5s ease,
+        transform 0.2s ease-in-out 0.4s;
     &:has(.navigation.active) {
         transform: translateX(-100%);
+        opacity: 1;
+        transition: opacity 0.5s ease;
     }
     & > *:not(:last-child) {
         margin-block-end: toRem(20);

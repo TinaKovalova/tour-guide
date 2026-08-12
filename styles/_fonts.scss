@@ -37,7 +37,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-business:before {
+    content: "\e907";
+}
 .icon-search:before {
     content: "\e900";
 }
