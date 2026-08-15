@@ -261,11 +261,17 @@
     // .popular-cities__banner
 
     &__banner {
+        &:not(:last-child) {
+            margin-block-end: toRem(30);
+        }
     }
 
     // .popular-cities__collection
 
     &__collection {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(toRem(270), 1fr));
+        gap: toRem(30);
     }
 }
 
