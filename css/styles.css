@@ -408,6 +408,7 @@ body {
   display: flex;
 }
 .tour-card__link {
+  min-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1128,6 +1129,7 @@ body {
   padding-inline: 0.8125rem;
   padding-block: 0.75rem;
   border-color: #7bbcb0;
+  background-color: #ffffff;
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.286; /* 18/14 */
