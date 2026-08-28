@@ -23,5 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
          `${parseFloat(headerHeight) / 16}rem`,
        );
      });
+    
+    const featuredSwiper = new Swiper(".featured__slider.swiper", {
+      slidesPerView: "auto",
+
+      centerInsufficientSlides: true,
+      navigation: {
+        nextEl: ".featured__slider-button-next",
+        prevEl: ".featured__slider-button-prev",
+      },
+      breakpoints: {
+        320: {
+          spaceBetween: 10,
+        },
+        480: {
+          spaceBetween: 15,
+        },
+        992: {
+          spaceBetween: 30,
+        },
+      },
+    });
 })
 

@@ -48,13 +48,12 @@
         &.button--gray:hover {
             background-color: #39424a;
         }
-        &.button--white:hover {
-        }
     }
 }
 
 .section-header {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     row-gap: toRem(19);
     &.section-header--main {
@@ -89,7 +88,6 @@
         }
     }
     &.section-header--centered {
-        align-items: center;
         align-items: center;
         text-align: center;
     }
@@ -209,20 +207,7 @@
     // .tour-card__rate
 
     &__rate {
-        display: flex;
-        color: #cfd9de;
-    }
-
-    // .tour-card__rate-mark
-
-    &__rate-mark {
         font-size: toRem(13);
-    }
-
-    // .tour-card__rate-mark--colored
-
-    &__rate-mark--colored {
-        color: $orangeColor;
     }
 
     &__reviews-text,
@@ -255,4 +240,25 @@
             }
         }
     }
+}
+.rate {
+    display: flex;
+    color: #cfd9de;
+    // .rate__rate-mark--colored
+
+    &__rate-mark--colored {
+        color: $orangeColor;
+    }
+}
+.section-lable {
+    font-size: toRem(12);
+    line-height: 1.25; /* 15/12 */
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: toRem(30);
+    padding-block-start: toRem(8);
+    padding-block-end: toRem(7);
+    padding-inline-start: toRem(16);
+    padding-inline-end: toRem(15);
+    background-color: #affff0;
 }

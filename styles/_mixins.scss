@@ -125,3 +125,12 @@
 		}
 	}
 }
+@mixin children-separator($margin-left: 5) {
+	& > *:not(:last-child)::after {
+		content: "";
+		height: 1em;
+		width: toRem(1);
+		margin-inline-start: toRem($margin-left);
+		background-color: currentColor;
+	}
+}
