@@ -743,3 +743,109 @@
         }
     }
 }
+.mob-app {
+    background: url("../assets/images/mob-app/app-bg.jpg") center/cover no-repeat;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-block-start: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(toRem(10));
+        background: linear-gradient(103.57deg, rgba(72, 5, 125, 0.7) -1.03%, rgba(42, 221, 231, 0.7) 100%);
+    }
+    // .mob-app__container
+
+    &__container {
+        position: relative;
+        padding-block: clamp(2.5rem, 1.7857rem + 3.5714vw, 5rem); /* 80/40>1440-320 */
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        gap: toRem(30) clamp(1.875rem, 1.0714rem + 4.0179vw, 4.6875rem); /* 75/30>1440-320 */
+        @media (max-width: toRem(991.98)) {
+            flex-wrap: wrap-reverse;
+        }
+    }
+
+    // .mob-app__image-wrapper
+
+    &__image-wrapper {
+        flex-basis: toRem(440);
+        min-width: toRem(240);
+        aspect-ratio: 440 / 560;
+        position: relative;
+    }
+
+    // .mob-app__image
+
+    &__image {
+        position: absolute;
+        width: 66.8182%; /* 294/440 */
+        aspect-ratio: 294 / 520;
+        border-radius: toRem(20);
+        background: #c4c4c4;
+        &:first-of-type {
+            inset-inline-start: 0;
+            inset-block-start: 0;
+            z-index: 1;
+        }
+        &:last-of-type {
+            inset-inline-end: 0;
+            inset-block-end: 0;
+        }
+    }
+
+    // .mob-app__content
+
+    &__content {
+        max-width: toRem(530);
+        & > *:not(:last-child) {
+            margin-block-end: clamp(1.875rem, 1.6964rem + 0.8929vw, 2.5rem); /* 40/30>1440-320 */
+        }
+    }
+
+    // .mob-app__heade
+
+    &__header {
+        color: $whiteColor;
+        .section-header__title,
+        .section-header__text {
+            color: inherit;
+        }
+        .section-header__additional-info {
+            margin-top: toRem(-16);
+        }
+    }
+
+    // .mob-app__actions
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: toRem(10);
+    }
+
+    // .mob-app__actions-button
+
+    &__actions-button {
+        flex-shrink: 1;
+        min-width: max-content;
+        flex-grow: 0.7;
+        flex-basis: toRem(260);
+        padding-inline: toRem(10);
+        line-height: 1.25; /* 20/16 */
+        text-transform: capitalize;
+        &::before {
+            font-size: toRem(26);
+        }
+        @media (min-width: toRem(992)) {
+            padding-block: toRem(22);
+        }
+    }
+}
