@@ -849,3 +849,57 @@
         }
     }
 }
+.gallery {
+    // .gallery__container
+
+    &__container {
+        padding-block-start: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem); /* 74/40>1440-320 */
+        padding-block-end: toRem(30);
+    }
+
+    // .gallery__top
+
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: toRem(20);
+        &:not(:last-child) {
+            margin-block-end: clamp(1.875rem, 1.3393rem + 2.6786vw, 3.75rem); /* 60/30>1440-320 */
+        }
+    }
+
+    // .gallery__header
+
+    &__header {
+        max-width: toRem(538);
+    }
+
+    // .gallery__button
+
+    &__button {
+        margin-left: auto;
+    }
+
+    // .gallery__collection
+
+    &__collection {
+        display: grid;
+        gap: toRem(30);
+        grid-template-columns: repeat(auto-fit, minmax(toRem(250), 1fr));
+    }
+
+    // .gallery__image-wrapper
+
+    &__image-wrapper {
+        aspect-ratio: 270 / 320;
+    }
+
+    // .gallery__image
+
+    &__image {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+}
