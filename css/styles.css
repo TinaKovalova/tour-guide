@@ -1194,6 +1194,7 @@ body {
 .city-banner__image-wrapper {
   width: 100%;
   aspect-ratio: 250/120;
+  overflow: hidden;
 }
 @media (min-width: 48rem) {
   .city-banner__image-wrapper {
@@ -1201,9 +1202,11 @@ body {
   }
 }
 .city-banner__image {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   aspect-ratio: 250/120;
+  -o-object-position: top;
+     object-position: top;
   background: #c4c4c4;
 }
 @media (min-width: 48rem) {
