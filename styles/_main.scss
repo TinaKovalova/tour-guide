@@ -302,6 +302,15 @@
             background-color: $mintColor;
             color: $whiteColor;
         }
+        transition: background-color 0.4s ease;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: rgba($color: $mintColor, $alpha: 0.2);
+                &:has(:checked) {
+                    background-color: #629f94;
+                }
+            }
+        }
     }
 
     // .select-form__checkbox
@@ -337,9 +346,10 @@
     // .city-banner__image
 
     &__image {
-        width: 100%;
+        min-width: 100%;
         min-height: 100%;
         aspect-ratio: 250 / 120;
+        background: $lightGrayColor;
         @media (min-width: toRem(768)) {
             aspect-ratio: 1170 / 500;
         }
@@ -492,7 +502,7 @@
     &__container {
         position: relative;
         display: flex;
-        align-items: center;
+        // align-items: center;
         gap: toRem(30);
         padding-block-start: clamp(2.5rem, 1.8036rem + 3.4821vw, 4.9375rem); /* 79/40>1440-320 */
         padding-block-end: clamp(2.5rem, 1.7679rem + 3.6607vw, 5.0625rem); /* 81/40>1440-320 */
@@ -506,13 +516,15 @@
         flex-grow: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         padding-inline: toRem(30);
+        aspect-ratio: 565 / 426;
     }
     // .trending__image-wrapper
 
     &__image-wrapper {
         max-width: toRem(405);
+        display: flex;
         position: relative;
         aspect-ratio: 405 /429;
         &::before,
@@ -547,11 +559,13 @@
         mask-size: cover;
         position: relative;
         z-index: 2;
+        background: $lightGrayColor;
     }
 
     // .trending__content
 
     &__content {
+        align-self: center;
         flex: 1 1 50%;
         padding-inline: toRem(21);
         padding-block-start: toRem(19);
@@ -787,7 +801,8 @@
         width: 66.8182%; /* 294/440 */
         aspect-ratio: 294 / 520;
         border-radius: toRem(20);
-        background: #c4c4c4;
+        background: $lightGrayColor;
+        box-shadow: 20px 10px 24px 0 rgba(0, 0, 0, 0.15);
         &:first-of-type {
             inset-inline-start: 0;
             inset-block-start: 0;
@@ -842,10 +857,10 @@
         line-height: 1.25; /* 20/16 */
         text-transform: capitalize;
         &::before {
-            font-size: toRem(26);
+            font-size: toRem(21);
         }
         @media (min-width: toRem(992)) {
-            padding-block: toRem(22);
+            padding-block: toRem(21);
         }
     }
 }
@@ -893,6 +908,14 @@
 
     &__image-wrapper {
         aspect-ratio: 270 / 320;
+        background-color: $lightGrayColor;
+        transition: all 0.4s ease;
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: 0 toRem(8) toRem(34) rgba(0, 0, 0, 0.06);
+                scale: 1.02;
+            }
+        }
     }
 
     // .gallery__image
@@ -901,5 +924,124 @@
         min-width: 100%;
         min-height: 100%;
         object-fit: cover;
+    }
+}
+
+.stories {
+    // .stories__container
+
+    &__container {
+        padding-block-start: toRem(41);
+        padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
+    }
+
+    // .stories__top
+
+    &__top {
+        @extend .gallery__top;
+    }
+
+    // .stories__header
+
+    &__header {
+        @extend .gallery__header;
+    }
+
+    // .stories__button
+
+    &__button {
+        @extend .gallery__button;
+    }
+
+    // .stories__collection
+
+    &__collection {
+        display: grid;
+        gap: toRem(30);
+        grid-template-columns: repeat(auto-fit, minmax(toRem(250), 1fr));
+    }
+}
+
+.story-card {
+    box-shadow: 0 toRem(8) toRem(34) rgba(0, 0, 0, 0.06);
+    background: $whiteColor;
+    border-radius: toRem(10) toRem(10) toRem(3) toRem(3);
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+
+    // .story-card__link
+
+    &__link {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    // .story-card__image-wrapper
+
+    &__image-wrapper {
+        min-width: 100%;
+        aspect-ratio: 270 / 200;
+        overflow: hidden;
+        background-color: $lightGrayColor;
+    }
+
+    // .story-card__image
+
+    &__image {
+        min-width: 100%;
+        min-height: 100%;
+        aspect-ratio: 270 / 200;
+        transition: scale 0.4s ease;
+    }
+
+    // .story-card__info
+
+    &__info {
+        padding-block-start: toRem(7);
+        padding-block-end: toRem(15);
+        padding-inline: toRem(20);
+        & > *:not(:last-child) {
+            margin-block-end: toRem(7);
+        }
+    }
+
+    // .story-card__author
+
+    &__author {
+        display: flex;
+        column-gap: toRem(6);
+        align-items: center;
+    }
+
+    // .story-card__author-avatar
+
+    &__author-avatar {
+        border-radius: 50%;
+        width: toRem(24);
+        aspect-ratio: 1;
+    }
+
+    // .story-card__autor-name
+
+    &__autor-name {
+        font-weight: 600;
+        color: $darkColor-60;
+    }
+
+    // .story-card__title
+
+    &__title {
+        font-family: "Volkhov", serif;
+        font-size: toRem(18);
+        line-height: 1.44;
+        color: $mainDarkColor;
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0 toRem(4) toRem(14) rgba(0, 0, 0, 0.3);
+            .story-card__image {
+                scale: 1.03;
+            }
+        }
     }
 }

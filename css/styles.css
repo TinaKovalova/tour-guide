@@ -426,9 +426,10 @@ body {
   overflow: hidden;
 }
 .tour-card__image {
-  width: 100%;
+  min-width: 100%;
   min-height: 100%;
   aspect-ratio: 250/180;
+  background: #c4c4c4;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
@@ -1160,6 +1161,18 @@ body {
   background-color: #7bbcb0;
   color: #ffffff;
 }
+.select-form__label {
+  -webkit-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+@media (any-hover: hover) {
+  .select-form__label:hover {
+    background-color: rgba(123, 188, 176, 0.2);
+  }
+  .select-form__label:hover:has(:checked) {
+    background-color: #629f94;
+  }
+}
 .select-form__checkbox {
   border: 0;
   width: 0.0625rem;
@@ -1188,9 +1201,10 @@ body {
   }
 }
 .city-banner__image {
-  width: 100%;
+  min-width: 100%;
   min-height: 100%;
   aspect-ratio: 250/120;
+  background: #c4c4c4;
 }
 @media (min-width: 48rem) {
   .city-banner__image {
@@ -1343,9 +1357,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 1.875rem;
   -webkit-padding-before: clamp(2.5rem, 1.8036rem + 3.4821vw, 4.9375rem);
           padding-block-start: clamp(2.5rem, 1.8036rem + 3.4821vw, 4.9375rem); /* 79/40>1440-320 */
@@ -1370,13 +1381,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding-inline: 1.875rem;
+  aspect-ratio: 565/426;
 }
 .trending__image-wrapper {
   max-width: 25.3125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   aspect-ratio: 405/429;
 }
@@ -1415,8 +1427,11 @@ body {
           mask-size: cover;
   position: relative;
   z-index: 2;
+  background: #c4c4c4;
 }
 .trending__content {
+  -ms-flex-item-align: center;
+      align-self: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
@@ -1706,6 +1721,8 @@ body {
   aspect-ratio: 294/520;
   border-radius: 1.25rem;
   background: #c4c4c4;
+  -webkit-box-shadow: 20px 10px 24px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 20px 10px 24px 0 rgba(0, 0, 0, 0.15);
 }
 .mob-app__image:first-of-type {
   inset-inline-start: 0;
@@ -1764,11 +1781,11 @@ body {
   text-transform: capitalize;
 }
 .mob-app__actions-button::before {
-  font-size: 1.625rem;
+  font-size: 1.3125rem;
 }
 @media (min-width: 62rem) {
   .mob-app__actions-button {
-    padding-block: 1.375rem;
+    padding-block: 1.3125rem;
   }
 }
 
@@ -1778,7 +1795,7 @@ body {
   -webkit-padding-after: 1.875rem;
           padding-block-end: 1.875rem;
 }
-.gallery__top {
+.gallery__top, .stories__top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1789,14 +1806,14 @@ body {
           align-items: center;
   gap: 1.25rem;
 }
-.gallery__top:not(:last-child) {
+.gallery__top:not(:last-child), .stories__top:not(:last-child) {
   -webkit-margin-after: clamp(1.875rem, 1.3393rem + 2.6786vw, 3.75rem);
           margin-block-end: clamp(1.875rem, 1.3393rem + 2.6786vw, 3.75rem); /* 60/30>1440-320 */
 }
-.gallery__header {
+.gallery__header, .stories__header {
   max-width: 33.625rem;
 }
-.gallery__button {
+.gallery__button, .stories__button {
   margin-left: auto;
 }
 .gallery__collection {
@@ -1806,12 +1823,109 @@ body {
 }
 .gallery__image-wrapper {
   aspect-ratio: 270/320;
+  background-color: #c4c4c4;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (any-hover: hover) {
+  .gallery__image-wrapper:hover {
+    -webkit-box-shadow: 0 0.5rem 2.125rem rgba(0, 0, 0, 0.06);
+            box-shadow: 0 0.5rem 2.125rem rgba(0, 0, 0, 0.06);
+    scale: 1.02;
+  }
 }
 .gallery__image {
   min-width: 100%;
   min-height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.stories__container {
+  -webkit-padding-before: 2.5625rem;
+          padding-block-start: 2.5625rem;
+  -webkit-padding-after: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem);
+          padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
+}
+.stories__collection {
+  display: grid;
+  gap: 1.875rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+}
+
+.story-card {
+  -webkit-box-shadow: 0 0.5rem 2.125rem rgba(0, 0, 0, 0.06);
+          box-shadow: 0 0.5rem 2.125rem rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border-radius: 0.625rem 0.625rem 0.1875rem 0.1875rem;
+  overflow: hidden;
+  -webkit-transition: -webkit-box-shadow 0.4s ease;
+  transition: -webkit-box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease, -webkit-box-shadow 0.4s ease;
+}
+.story-card__link {
+  min-width: 100%;
+  min-height: 100%;
+}
+.story-card__image-wrapper {
+  min-width: 100%;
+  aspect-ratio: 270/200;
+  overflow: hidden;
+  background-color: #c4c4c4;
+}
+.story-card__image {
+  min-width: 100%;
+  min-height: 100%;
+  aspect-ratio: 270/200;
+  -webkit-transition: scale 0.4s ease;
+  transition: scale 0.4s ease;
+}
+.story-card__info {
+  -webkit-padding-before: 0.4375rem;
+          padding-block-start: 0.4375rem;
+  -webkit-padding-after: 0.9375rem;
+          padding-block-end: 0.9375rem;
+  padding-inline: 1.25rem;
+}
+.story-card__info > *:not(:last-child) {
+  -webkit-margin-after: 0.4375rem;
+          margin-block-end: 0.4375rem;
+}
+.story-card__author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.375rem;
+     -moz-column-gap: 0.375rem;
+          column-gap: 0.375rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.story-card__author-avatar {
+  border-radius: 50%;
+  width: 1.5rem;
+  aspect-ratio: 1;
+}
+.story-card__autor-name {
+  font-weight: 600;
+  color: #778088;
+}
+.story-card__title {
+  font-family: "Volkhov", serif;
+  font-size: 1.125rem;
+  line-height: 1.44;
+  color: #1c2b38;
+}
+@media (any-hover: hover) {
+  .story-card:hover {
+    -webkit-box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.3);
+  }
+  .story-card:hover .story-card__image {
+    scale: 1.03;
+  }
 }
 
 .footer {

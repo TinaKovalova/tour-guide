@@ -121,9 +121,10 @@
     // .tour-card__image
 
     &__image {
-        width: 100%;
+        min-width: 100%;
         min-height: 100%;
         aspect-ratio: 250 / 180;
+        background: $lightGrayColor;
         transition: transform 0.3s ease;
     }
     // /tour-card__content-wrapper
