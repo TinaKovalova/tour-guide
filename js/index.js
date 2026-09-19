@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const featuredSwiper = new Swiper(".featured__slider.swiper", {
       slidesPerView: "auto",
-
       centerInsufficientSlides: true,
       navigation: {
         nextEl: ".featured__slider-button-next",
@@ -44,5 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       },
     });
+  
+    //tour swiper
+    const tourSwiper = new Swiper(".tourSwiper", {
+      loop: true,
+      slidesPerView: 6,
+
+      freeMode: true,
+      watchSlidesProgress: true,
+      breakpoints: {
+        320: {
+          spaceBetween: 5,
+        },
+        992: {
+          spaceBetween: 10,
+        },
+      },
+    });
+    const tourSwiper2 = new Swiper(".tourSwiper2", {
+      loop: true,
+      spaceBetween: 10,
+      speed: 1500,
+      thumbs: {
+        swiper: tourSwiper,
+      },
+    });
+  
 })
 

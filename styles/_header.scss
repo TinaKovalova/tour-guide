@@ -18,6 +18,7 @@
     }
     &.header--dark {
         color: $darkColor-80;
+        border-bottom: toRem(1) solid #e6e6e6;
     }
     // .header__container
 
