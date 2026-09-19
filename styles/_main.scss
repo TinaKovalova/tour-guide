@@ -246,7 +246,12 @@
         max-width: toRem(696);
         margin: 0 auto;
         &:not(:last-child) {
-            margin-block-end: toRem(36);
+            margin-block-end: toRem(24);
+        }
+        @media (min-width: toRem(768)) {
+            &:not(:last-child) {
+                margin-block-end: toRem(36);
+            }
         }
     }
 
@@ -254,7 +259,12 @@
 
     &__select-form {
         &:not(:last-child) {
-            margin-block-end: toRem(34);
+            margin-block-end: toRem(24);
+        }
+        @media (min-width: toRem(768)) {
+            &:not(:last-child) {
+                margin-block-end: toRem(34);
+            }
         }
     }
 
@@ -276,6 +286,7 @@
 }
 
 .select-form {
+    background-color: rgba($color: $whiteColor, $alpha: 0.6);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -285,11 +296,11 @@
 
     &__label {
         flex-shrink: 0;
-        flex-basis: toRem(130);
-        min-width: toRem(130);
+        flex-basis: toRem(80);
         @extend .button;
         @extend .button--oval;
-        padding-inline: toRem(13);
+        padding-inline: toRem(10);
+        min-width: max-content;
         padding-block: toRem(12);
         border-color: $mintColor;
         background-color: $whiteColor;
@@ -310,6 +321,12 @@
                     background-color: #629f94;
                 }
             }
+        }
+
+        @media (min-width: toRem(768)) {
+            min-width: toRem(130);
+            padding-inline: toRem(13);
+            flex-basis: toRem(130);
         }
     }
 

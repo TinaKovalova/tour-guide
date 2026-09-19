@@ -1110,12 +1110,24 @@ body {
   margin: 0 auto;
 }
 .popular-cities__header:not(:last-child) {
-  -webkit-margin-after: 2.25rem;
-          margin-block-end: 2.25rem;
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+@media (min-width: 48rem) {
+  .popular-cities__header:not(:last-child) {
+    -webkit-margin-after: 2.25rem;
+            margin-block-end: 2.25rem;
+  }
 }
 .popular-cities__select-form:not(:last-child) {
-  -webkit-margin-after: 2.125rem;
-          margin-block-end: 2.125rem;
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+@media (min-width: 48rem) {
+  .popular-cities__select-form:not(:last-child) {
+    -webkit-margin-after: 2.125rem;
+            margin-block-end: 2.125rem;
+  }
 }
 .popular-cities__banner:not(:last-child) {
   -webkit-margin-after: 1.875rem;
@@ -1128,6 +1140,7 @@ body {
 }
 
 .select-form {
+  background-color: rgba(255, 255, 255, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1144,10 +1157,12 @@ body {
 .select-form__label {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -ms-flex-preferred-size: 8.125rem;
-      flex-basis: 8.125rem;
-  min-width: 8.125rem;
-  padding-inline: 0.8125rem;
+  -ms-flex-preferred-size: 5rem;
+      flex-basis: 5rem;
+  padding-inline: 0.625rem;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   padding-block: 0.75rem;
   border-color: #7bbcb0;
   background-color: #ffffff;
@@ -1171,6 +1186,14 @@ body {
   }
   .select-form__label:hover:has(:checked) {
     background-color: #629f94;
+  }
+}
+@media (min-width: 48rem) {
+  .select-form__label {
+    min-width: 8.125rem;
+    padding-inline: 0.8125rem;
+    -ms-flex-preferred-size: 8.125rem;
+        flex-basis: 8.125rem;
   }
 }
 .select-form__checkbox {
