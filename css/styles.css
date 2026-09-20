@@ -1981,6 +1981,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   gap: 1.875rem;
 }
 .tour__content {
@@ -2095,6 +2098,9 @@ body {
   -webkit-margin-after: 1.4375rem;
           margin-block-end: 1.4375rem;
   border-bottom: 0.0625rem solid #cedadf;
+}
+.tour__description .tour__article-content {
+  line-height: 1.6; /* 24/15 */
 }
 .tour__description .tour__article-content > *:not(:last-child) {
   -webkit-margin-after: 1.25rem;
@@ -2226,6 +2232,7 @@ body {
   font-weight: 700;
   font-size: 0.9375rem;
   padding-block: 0.875rem;
+  padding-inline: 0.625rem;
 }
 @media (any-hover: hover) {
   .booking__button:hover {
@@ -2368,6 +2375,7 @@ body {
   width: 100%;
   font-size: 0.9375rem;
   padding-block: 0.875rem;
+  padding-inline: 0.625rem;
 }
 
 .footer {
