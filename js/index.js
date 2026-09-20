@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const burgerButton = document.querySelector(".burger-button");
     const header = document.querySelector(".header");
     const menu = header.querySelector(".burger-menu");
+    const bookingButton = document.querySelector(".booking__active-button");
    
     burgerButton?.addEventListener("click", (e) => {
         navigation?.classList.toggle("active");
@@ -68,6 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         swiper: tourSwiper,
       },
     });
+  bookingButton?.addEventListener("click", (e) => {
+    const bookingElement = e.target.closest(".booking");
+    if (bookingElement) {
+      console.log(true);
+      bookingElement.classList.toggle("active");
+    }
+  })
   
 })
 

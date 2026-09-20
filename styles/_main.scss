@@ -1094,16 +1094,25 @@
     &__content-wrapper {
         display: flex;
         align-items: flex-start;
-        gap: toRem(30);
+
+        position: relative;
+        @media (min-width: toRem(992)) {
+            gap: toRem(30);
+        }
     }
 
     // .tour__content
 
     &__content {
-        flex-basis: toRem(770);
-        min-width: 65.812%; /* 770/1170 */
+        width: 100%;
         & > *:not(:last-child) {
             margin-block-end: toRem(30);
+        }
+
+        @media (min-width: toRem(992)) {
+            flex-basis: toRem(770);
+            min-width: 65.812%; /* 770/1170 */
+            width: auto;
         }
     }
 
@@ -1339,8 +1348,14 @@
 
     //tour__booking
     &__booking {
-        flex-basis: toRem(370);
-        min-width: 31.6239%; /* 370/1170 */
+        min-width: toRem(260); /* 370/1170 */
+        position: sticky;
+        z-index: 2;
+        top: var(--header-height);
+
+        @media (min-width: toRem(992)) {
+            flex-basis: toRem(370);
+        }
     }
 }
 
@@ -1348,7 +1363,77 @@
     border-radius: toRem(4);
     box-shadow: 0 toRem(4) toRem(10) rgba(0, 0, 0, 0.1);
     background: $whiteColor;
+    transition: transform 0.4s ease;
+    @media (max-width: toRem(478.98)) {
+        &.active {
+            min-width: 100%;
+        }
+    }
+    @media (max-width: toRem(991.98)) {
+        &.active {
+            transform: translateX(-100%);
+        }
+    }
 
+    //booking__header
+    &__header {
+        min-height: toRem(50);
+        padding-block: toRem(4) toRem(8);
+        padding-inline: toRem(30);
+        border-bottom: toRem(1) solid #f4f4f5;
+        display: flex;
+        align-items: center;
+        column-gap: toRem(10);
+        // @media (min-width: toRem(992)) {
+        //     padding-block: toRem(14) toRem(18);
+        // }
+    }
+    //booking__active-button
+    &__active-button {
+        font-weight: 800;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: toRem(7);
+        padding: toRem(10);
+        border: 2px solid $orangeColor;
+        transition: transform 0.4s ease;
+        &::before {
+            rotate: 180deg;
+        }
+        .active &::before {
+            rotate: 360deg;
+        }
+        @media (max-width: toRem(479.98)) {
+            .active & {
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: toRem(767.98)) {
+            & span {
+                display: none;
+            }
+        }
+        @media (max-width: toRem(991.98)) {
+            position: absolute;
+            inset-inline-start: 0;
+            inset-block-start: toRem(3);
+            transform: translateX(-100%);
+            .active & {
+                position: relative;
+                inset-inline-start: 0;
+                inset-block-start: 0;
+                transform: translateX(0);
+            }
+            .active & span {
+                display: none;
+            }
+        }
+        @media (min-width: toRem(992)) {
+            display: none;
+        }
+    }
     // .booking__title
 
     &__title {
@@ -1357,9 +1442,6 @@
         line-height: 1;
         color: $mainDarkColor;
         text-transform: capitalize;
-        padding-block: toRem(14) toRem(18);
-        padding-inline: toRem(30);
-        border-bottom: toRem(1) solid #f4f4f5;
     }
     &__wrapper {
         padding-block: toRem(26) toRem(30);
@@ -1381,6 +1463,12 @@
                 color: $mintColor;
                 border-color: $mintColor;
             }
+        }
+    }
+    @media (max-width: toRem(991.98)) {
+        &__header,
+        &__wrapper {
+            padding-inline: toRem(15);
         }
     }
 }

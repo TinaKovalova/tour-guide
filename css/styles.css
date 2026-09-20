@@ -1984,16 +1984,27 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  gap: 1.875rem;
+  position: relative;
+}
+@media (min-width: 62rem) {
+  .tour__content-wrapper {
+    gap: 1.875rem;
+  }
 }
 .tour__content {
-  -ms-flex-preferred-size: 48.125rem;
-      flex-basis: 48.125rem;
-  min-width: 65.812%; /* 770/1170 */
+  width: 100%;
 }
 .tour__content > *:not(:last-child) {
   -webkit-margin-after: 1.875rem;
           margin-block-end: 1.875rem;
+}
+@media (min-width: 62rem) {
+  .tour__content {
+    -ms-flex-preferred-size: 48.125rem;
+        flex-basis: 48.125rem;
+    min-width: 65.812%; /* 770/1170 */
+    width: auto;
+  }
 }
 .tour__slider .tourSwiper2 {
   width: 100%;
@@ -2196,9 +2207,16 @@ body {
   aspect-ratio: 770/340;
 }
 .tour__booking {
-  -ms-flex-preferred-size: 23.125rem;
-      flex-basis: 23.125rem;
-  min-width: 31.6239%; /* 370/1170 */
+  min-width: 16.25rem; /* 370/1170 */
+  position: sticky;
+  z-index: 2;
+  top: var(--header-height);
+}
+@media (min-width: 62rem) {
+  .tour__booking {
+    -ms-flex-preferred-size: 23.125rem;
+        flex-basis: 23.125rem;
+  }
 }
 
 .booking {
@@ -2206,6 +2224,104 @@ body {
   -webkit-box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   background: #ffffff;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+@media (max-width: 29.93625rem) {
+  .booking.active {
+    min-width: 100%;
+  }
+}
+@media (max-width: 61.99875rem) {
+  .booking.active {
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+.booking__header {
+  min-height: 3.125rem;
+  padding-block: 0.25rem 0.5rem;
+  padding-inline: 1.875rem;
+  border-bottom: 0.0625rem solid #f4f4f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+}
+.booking__active-button {
+  font-weight: 800;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 0.4375rem;
+     -moz-column-gap: 0.4375rem;
+          column-gap: 0.4375rem;
+  padding: 0.625rem;
+  border: 2px solid #ffa432;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.booking__active-button::before {
+  rotate: 180deg;
+}
+.active .booking__active-button::before {
+  rotate: 360deg;
+}
+@media (max-width: 29.99875rem) {
+  .active .booking__active-button {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@media (max-width: 47.99875rem) {
+  .booking__active-button span {
+    display: none;
+  }
+}
+@media (max-width: 61.99875rem) {
+  .booking__active-button {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.1875rem;
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  .active .booking__active-button {
+    position: relative;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .active .booking__active-button span {
+    display: none;
+  }
+}
+@media (min-width: 62rem) {
+  .booking__active-button {
+    display: none;
+  }
 }
 .booking__title {
   font-weight: 700;
@@ -2213,9 +2329,6 @@ body {
   line-height: 1;
   color: #1c2b38;
   text-transform: capitalize;
-  padding-block: 0.875rem 1.125rem;
-  padding-inline: 1.875rem;
-  border-bottom: 0.0625rem solid #f4f4f5;
 }
 .booking__wrapper {
   padding-block: 1.625rem 1.875rem;
@@ -2238,6 +2351,11 @@ body {
   .booking__button:hover {
     color: #7bbcb0;
     border-color: #7bbcb0;
+  }
+}
+@media (max-width: 61.99875rem) {
+  .booking__header, .booking__wrapper {
+    padding-inline: 0.9375rem;
   }
 }
 
