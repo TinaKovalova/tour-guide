@@ -2381,6 +2381,7 @@ body {
   color: #1c2b38;
 }
 .booking-form__input, .booking-form__select {
+  border-radius: 0.1875rem;
   padding-inline: 1.25rem 0.8125rem;
   padding-block: 0.8125rem;
   background-color: #f4f4f5;
@@ -2396,7 +2397,6 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
@@ -2412,6 +2412,10 @@ body {
             appearance: base-select;
   }
   .booking-form__select::picker(select) {
+    border-radius: 0.1875rem;
+    -webkit-box-shadow: 0 0.0625rem 0.3125rem #c4c4c4;
+            box-shadow: 0 0.0625rem 0.3125rem #c4c4c4;
+    border: none;
     top: anchor(100%);
     left: anchor(0);
     opacity: 0;
