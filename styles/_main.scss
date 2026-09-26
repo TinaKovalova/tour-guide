@@ -731,48 +731,11 @@
         max-width: toRem(538);
     }
 
-    // .featured__slider-controls
-
-    &__slider-controls {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        column-gap: toRem(10);
-    }
-
-    // .featured__slider-button-prev
-    &__slider-button-next,
-    &__slider-button-prev {
-        width: toRem(50);
-        height: toRem(50);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: toRem(1) solid rgba(255, 218, 50, 1);
-        box-shadow: 0 toRem(8) toRem(20) 0 rgba(255, 218, 50, 0.5);
-        &:not(:disabled) {
-            background-color: $yellowColor;
-        }
-    }
-
-    // .featured__slider-button-next
-
-    &__slider-button-prev::before {
-        transform: rotate(180deg);
-    }
-
     // .featured__slider
 
     &__slider {
-        &.swiper {
-            margin: 0 auto;
-        }
         & .swiper-wrapper {
             padding-block: clamp(1.875rem, 1.5179rem + 1.7857vw, 3.125rem); /* 50/30>1440-320 */
-        }
-        & .swiper-slide {
-            width: toRem(270);
         }
     }
 }
@@ -1210,7 +1173,7 @@
 
     &__information {
         color: $darkColor-80;
-        & > * {
+        & > *:not(:last-child) {
             padding-block-end: toRem(28);
         }
         & > *:not(:last-child) {
@@ -1229,7 +1192,10 @@
     }
 
     // .tour__article-title
-
+    &__article-title,
+    &__article-subtitle {
+        @extend .section-header__title;
+    }
     &__article-title {
         font-size: toRem(22);
         line-height: 1.273; /* 28/22 */
@@ -1244,23 +1210,6 @@
         &:not(:last-child) {
             margin-block-end: toRem(10);
         }
-    }
-    &__article-title,
-    &__article-subtitle {
-        font-family: "Volkhov", serif;
-        font-weight: 700;
-        color: $mainDarkColor;
-        text-transform: capitalize;
-    }
-
-    // .tour__article-content
-
-    &__article-content {
-    }
-
-    // .tour__activity
-
-    &__activity {
     }
 
     // .tour__list
@@ -1297,11 +1246,6 @@
         @extend .tour__article-subtitle;
     }
 
-    // .tour__safety
-
-    &__safety {
-    }
-
     // .tour__details
 
     &__details {
@@ -1323,10 +1267,6 @@
         & .tour__address-point-link:not(:last-child) {
             margin-block-end: toRem(18);
         }
-    }
-    // .tour__article-content-section
-
-    &__article-content-section {
     }
 
     // .tour__address-point-link
@@ -1437,11 +1377,9 @@
     // .booking__title
 
     &__title {
-        font-weight: 700;
+        @extend .section-header__title;
         font-size: toRem(18);
         line-height: 1;
-        color: $mainDarkColor;
-        text-transform: capitalize;
     }
     &__wrapper {
         padding-block: toRem(26) toRem(30);
@@ -1606,5 +1544,12 @@
         font-size: toRem(15);
         padding-block: toRem(14);
         padding-inline: toRem(10);
+    }
+}
+
+.related-today,
+.related {
+    .slider-section__container {
+        border-top: toRem(1) solid #cedadf;
     }
 }

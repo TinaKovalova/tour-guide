@@ -263,3 +263,94 @@
     padding-inline-end: toRem(15);
     background-color: #affff0;
 }
+.slider-section {
+    &__container {
+        padding-block-start: toRem(31);
+    }
+
+    // .slider-section__header
+
+    &__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: toRem(20) toRem(15);
+    }
+
+    // .slider-section__title
+
+    &__title {
+        @extend .section-header__title;
+        font-size: toRem(22);
+        line-height: 1.273; /* 28/22 */
+    }
+
+    // .slider-section__slider
+
+    &__slider {
+        & .swiper-wrapper {
+            padding-block-start: toRem(20);
+            padding-block-end: toRem(30);
+        }
+    }
+}
+[class*="__slider swiper"] {
+    &.swiper {
+        margin: 0 auto;
+        @media (max-width: toRem($maxWidthContainer)) {
+            & {
+                min-width: 100vw;
+                margin-left: toRem(-$containerPadding);
+            }
+        }
+    }
+    & .swiper-wrapper {
+        padding-block: toRem(20);
+    }
+    & .swiper-slide {
+        width: toRem(270);
+    }
+}
+
+.slider-controls {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    column-gap: toRem(10);
+    &:has(.featured__slider-button-prev.swiper-button-disabled + .featured__slider-button-next.swiper-button-disabled) {
+        display: none;
+    }
+
+    //slider-controls__slider-button-prev
+    //slider-controls__slider-button-next
+    &__slider-button-prev,
+    &__slider-button-next {
+        width: toRem(50);
+        height: toRem(50);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: toRem(1) solid rgba(255, 218, 50, 1);
+        box-shadow: 0 toRem(8) toRem(20) rgba(255, 218, 50, 0.5);
+        transition: background-color 0.3s ease;
+        &:not(:disabled) {
+            background-color: $yellowColor;
+        }
+        &.swiper-button-disabled {
+            border-color: transparent;
+            box-shadow: 0 toRem(2) toRem(5) $lightGrayColor;
+            color: $lightGrayColor;
+            cursor: no-drop;
+        }
+        &[class*="button-prev"]::before {
+            transform: rotate(180deg);
+        }
+
+        @media (any-hover: hover) {
+            &:not(:disabled):hover {
+                background-color: #ffc400;
+            }
+        }
+    }
+}

@@ -88,25 +88,6 @@
 // 	}
 // }
 
-@mixin swiper-button-style {
-	// transition:
-	// 	color 0.3s ease,
-	// 	border-color 0.3s ease;
-	&.swiper-button-disabled {
-		visibility: hidden;
-	}
-	&[class*="button-prev"]::before {
-		transform: rotate(180deg);
-	}
-
-	@media (any-hover: hover) {
-		&:hover {
-			// color: $textColor;
-			// border-color: currentColor;
-			// background-color: rgba($color: #26391a, $alpha: 0.5);
-		}
-	}
-}
 @mixin hover-line {
 	position: relative;
 	&::before {
