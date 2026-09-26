@@ -87,43 +87,55 @@ document.addEventListener("DOMContentLoaded", () => {
   } 
 
   const relatedTodaySwiper = new Swiper("#related-today-slider", {
-    slidesPerView: "auto",
-    centerInsufficientSlides: true,
-    navigation: {
-      nextEl: ".related-today .slider-controls__slider-button-next",
-      prevEl: ".related-today .slider-controls__slider-button-prev",
-    },
-    breakpoints: {
-      320: {
-        spaceBetween: 10,
+      slidesPerView: "auto",
+      centerInsufficientSlides: true,
+      navigation: {
+        nextEl: ".related-today .slider-controls__slider-button-next",
+        prevEl: ".related-today .slider-controls__slider-button-prev",
       },
-      480: {
-        spaceBetween: 15,
+      breakpoints: {
+        320: {
+          spaceBetween: 10,
+        },
+        480: {
+          spaceBetween: 15,
+        },
+        992: {
+          spaceBetween: 30,
+        },
       },
-      992: {
-        spaceBetween: 30,
-      },
-    },
-  });
+    });
   const relatedSwiper = new Swiper("#related-slider", {
-    slidesPerView: "auto",
-    centerInsufficientSlides: true,
-    navigation: {
-      nextEl: ".related .slider-controls__slider-button-next",
-      prevEl: ".related .slider-controls__slider-button-prev",
-    },
-    breakpoints: {
-      320: {
-        spaceBetween: 10,
+      slidesPerView: "auto",
+      centerInsufficientSlides: true,
+      navigation: {
+        nextEl: ".related .slider-controls__slider-button-next",
+        prevEl: ".related .slider-controls__slider-button-prev",
       },
-      480: {
-        spaceBetween: 15,
+      breakpoints: {
+        320: {
+          spaceBetween: 10,
+        },
+        480: {
+          spaceBetween: 15,
+        },
+        992: {
+          spaceBetween: 30,
+        },
       },
-      992: {
-        spaceBetween: 30,
-      },
-    },
-  });
+    });
+    
+  const reviewScoreRow = document.querySelectorAll(".services-score__row");
+  if (reviewScoreRow?.length > 0) {
+    reviewScoreRow.forEach(item => {
+      const serviceName = item.dataset.serviceName;
+      const serviceRate = item.dataset.serviceScore;
+
+      item.querySelector(".services-score__service-name").textContent = serviceName;
+      item.querySelector(".services-score__rate-number").textContent = serviceRate;
+      item.querySelector(".services-score__graphic-rate span").style.width =`${serviceRate/5*100}%`;
+    })
+  }
   
   
 })

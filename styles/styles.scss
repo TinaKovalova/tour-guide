@@ -9,6 +9,9 @@
 
 html {
     scroll-behavior: smooth;
+    :target {
+        scroll-padding-top: var(--header-height);
+    }
 }
 
 body {
