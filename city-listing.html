@@ -44,9 +44,10 @@
         </header>
         <main class="page">
             <section class="activities">
-                <div class="activities__container">
-                    <div class="activities__top">
-                        <div class="section-header">
+
+                <div class="activities__top">
+                    <div class="activities__container">
+                        <div class="activities__header section-header">
                             <h1 class="section-header__title">
                                 Things to do in London
                             </h1>
@@ -54,8 +55,21 @@
                                 49 activities found.
                             </div>
                         </div>
+                        <div class="activities__sorting sorting">
+                            <lable class="sorting__lable" for="sort-param">Sort by:</lable>
+                            <select name="sort-param" id="sort-param" class="sorting__select">
+                                <button>
+                                    <selectedcontent></selectedcontent>
+                                </button>
+                                <option value="popularity" selected>popularity</option>
+                                <option value="rating">rating</option>
+                                <option value="descending-price">descending price</option>
+                                <option value="ascending-price">ascending price</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+
 
             </section>
             <section class="specials">
