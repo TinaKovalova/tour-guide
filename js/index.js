@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     //tour swiper
-    const tourSwiper = new Swiper(".tourSwiper", {
+    const tourSwiper = new Swiper(".tour-swiper", {
       loop: true,
       slidesPerView: 6,
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       },
     });
-    const tourSwiper2 = new Swiper(".tourSwiper2", {
+    const tourSwiper2 = new Swiper(".tour-swiper2", {
       loop: true,
       spaceBetween: 10,
       speed: 1500,

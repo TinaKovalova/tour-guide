@@ -43,7 +43,7 @@
             <div class="burger-menu"></div>
         </header>
         <main class="page">
-            <!-- <section class="tour">
+            <section class="tour">
                 <div class="tour__container">
                     <div class="tour__header section-header">
                         <h1 class="section-header__title">
@@ -66,7 +66,7 @@
                     <div class="tour__content-wrapper">
                         <div class="tour__content">
                             <div class="tour__slider">
-                                <div class="swiper tourSwiper2">
+                                <div class="swiper tour-swiper2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img src="assets/images/tour/tour_02.jpg" alt="tour-02" />
@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div thumbsSlider="" class="swiper tourSwiper">
+                                <div thumbsSlider=".tour-swiper2" class="swiper tour-swiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img src="assets/images/tour/tour_02.jpg" alt="tour-02" />
@@ -579,7 +579,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <section class="related">
                 <div class="slider-section">
                     <div class="slider-section__container">
@@ -873,7 +873,52 @@
                             </div>
                         </div>
                     </div>
-                    <form action="" class="review__form form-review"></form>
+                    <form action="#" class="review__form form-review" name="form-review" method="get">
+                        <div class="form-review__title icon-filter">Filtering:</div>
+
+                        <div class="form-review__fields-wrapper">
+                            <label class="form-review__label" for="recommended-reviews">
+                                <span>Recommended</span>
+                                <select class="form-review__select" name="recommended" id="recommended-reviews">
+                                    <button>
+                                        <selectedcontent></selectedcontent>
+                                    </button>
+                                    <option disabled></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </label>
+                            <label class="form-review__label" for="treveler-type">
+                                <span>Traveler type</span>
+                                <select class="form-review__select" name="treveler-type" id="treveler-type">
+                                    <button>
+                                        <selectedcontent></selectedcontent>
+                                    </button>
+                                    <option disabled></option>
+                                    <option value="solo">solo</option>
+                                    <option value="company">group</option>
+                                </select>
+                            </label>
+                            <label class="form-review__label" for="rating">
+                                <span>Rating</span>
+                                <select class="form-review__select" name="rating" id="rating">
+                                    <button>
+                                        <selectedcontent></selectedcontent>
+                                    </button>
+                                    <option disabled></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </label>
+                            <label class="form-review__label icon-search">
+                                <input type="search" class="form-review__search " name="search"
+                                    placeholder="search here">
+                            </label>
+                        </div>
+                    </form>
                     <div class="review__customers-reviews">
                         <article class="customer-review">
                             <div class="customer-review__info">

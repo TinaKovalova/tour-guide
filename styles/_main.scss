@@ -1082,7 +1082,7 @@
     // .tour__slider
 
     &__slider {
-        .tourSwiper2 {
+        .tour-swiper2 {
             width: 100%;
             aspect-ratio: 770 / 460;
             &:not(:last-child) {
@@ -1091,6 +1091,7 @@
         }
         .swiper-slide {
             position: relative;
+            height: auto;
             &::after {
                 content: "";
                 width: 100%;
@@ -1109,7 +1110,7 @@
             object-fit: cover;
             background: $lightGrayColor;
         }
-        .tourSwiper {
+        .tour-swiper {
             width: 100%;
             & .swiper-slide {
                 width: 16.6667%; /* 120/720 */
@@ -1630,12 +1631,6 @@
     &__services-score {
         flex-basis: toRem(380);
     }
-
-    // .review__form
-
-    &__form {
-    }
-
     // .review__customers-reviews
 
     &__customers-reviews {
@@ -1709,6 +1704,156 @@
     }
 }
 .form-review {
+    border: toRem(1) solid rgba(22, 82, 125, 0.08);
+    border-radius: toRem(3);
+    padding-block: toRem(15);
+    padding-inline: clamp(0.9375rem, 0.6696rem + 1.3393vw, 1.875rem); /* 30/15>1440-320 */
+    background-color: #f8fafc;
+    font-size: toRem(15);
+    gap: toRem(20);
+    flex-wrap: wrap;
+    &,
+    &__fields-wrapper {
+        display: flex;
+        gap: toRem(10);
+    }
+
+    //form-review__fields-wrapper
+    &__fields-wrapper {
+        flex-grow: 1;
+        @media (max-width: toRem(991.98)) {
+            flex-wrap: wrap;
+        }
+    }
+
+    // .form-review__title
+    &__title {
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        column-gap: toRem(5);
+        &::before {
+            font-size: toRem(22.5);
+            line-height: 1.34;
+            font-weight: 500;
+            width: toRem(30);
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    //form-review__label
+    &__label {
+        flex-basis: toRem(200);
+        min-width: toRem(200);
+        display: flex;
+        align-items: baseline;
+        column-gap: toRem(5);
+        align-items: center;
+        padding-block: toRem(16);
+        padding-inline-start: toRem(20);
+        padding-inline-end: toRem(18);
+        font-weight: 600;
+        background-color: $whiteColor;
+        box-shadow: 0 toRem(4) toRem(10) rgba(0, 0, 0, 0.1);
+        border-radius: toRem(3);
+        &:not(:has(.form-review__search)) {
+            flex-shrink: 0;
+        }
+        & span {
+            min-width: fit-content;
+            color: $darkColor-80;
+        }
+        &:focus-within {
+            background-color: lightGrayColor;
+        }
+        @media (max-width: toRem(991.98)) {
+            flex-grow: 1;
+        }
+    }
+
+    // .form-review__select
+
+    &__select {
+        flex-grow: 1;
+        text-align: start;
+        font-weight: inherit;
+        color: inherit;
+        background-color: inherit;
+        appearance: none;
+
+        transition: all 0.4s ease;
+        @supports not (appearance: base-select) {
+            background: url("../assets/images/icons/dropdown-arrow.svg") 92% center / toRem(9.63) toRem(5.8) no-repeat;
+        }
+        @supports (appearance: base-select) {
+            &,
+            &::picker(select) {
+                appearance: base-select;
+            }
+            &::picker(select) {
+                border-radius: toRem(3);
+                box-shadow: 0 toRem(1) toRem(5) $lightGrayColor;
+                border: none;
+                top: anchor(100%);
+                left: anchor(0);
+                opacity: 0;
+                transition: all 0.4s allow-discrete;
+            }
+            &:open::picker(select) {
+                opacity: 1;
+                @starting-style {
+                    opacity: 0;
+                }
+            }
+            &::picker-icon {
+                color: inherit;
+                width: toRem(14);
+                transform-origin: center;
+                transition: transform 0.4s ease;
+                content: "";
+                background: currentColor;
+                mask: url("../assets/images/icons/dropdown-arrow.svg") center/100% no-repeat;
+            }
+            &:open::picker-icon {
+                transform: rotate(-180deg);
+            }
+            selectedcontent,
+            option {
+                display: flex;
+                align-items: center;
+            }
+            option {
+                padding-block: toRem(7);
+                padding-inline: toRem(7);
+                @media (any-hover: hover) {
+                    &:hover {
+                        background-color: rgba($color: $mintColor, $alpha: 0.6);
+                    }
+                }
+            }
+            option::checkmark {
+                order: 2;
+            }
+        }
+    }
+
+    &__label:has(.form-review__search) {
+        flex-basis: toRem(362);
+        flex-grow: 1;
+        &::before {
+            color: $darkColor-80;
+            font-size: toRem(18);
+        }
+    }
+
+    // .form-review__search
+
+    &__search {
+        &::placeholder {
+            text-transform: capitalize;
+        }
+    }
 }
 .customer-review {
     display: flex;
@@ -1765,11 +1910,6 @@
         & > *:not(:last-child) {
             margin-block-end: toRem(5);
         }
-    }
-
-    // .customer-review__rate
-
-    &__rate {
     }
 
     // .customer-review__author-name
