@@ -1,5 +1,4 @@
 .header {
-    position: fixed;
     z-index: 100;
     inset-inline-start: 0;
     inset-block-start: 0;
@@ -15,9 +14,11 @@
         z-index: 1;
     }
     &.header--light {
+        position: fixed;
         color: $whiteColor;
     }
     &.header--dark {
+        position: sticky;
         color: $darkColor-80;
         background-color: $whiteColor;
         border-bottom: toRem(1) solid #e6e6e6;

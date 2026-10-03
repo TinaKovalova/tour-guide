@@ -600,6 +600,30 @@ body {
   font-size: 1.375rem;
   line-height: 1.273; /* 28/22 */
 }
+.slider-section__title.slider-section__title--lable {
+  -ms-flex-preferred-size: 10rem;
+      flex-basis: 10rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25; /* 15/12 */
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 1.875rem;
+  padding-block: 0.78125rem;
+  padding-inline: 1.40625rem;
+  background-color: #c4c4c4;
+}
+.slider-section__title.slider-section__title--mint {
+  background-color: #7bbcb0;
+}
+.slider-section__title.slider-section__title--blue {
+  background-color: #59a9fe;
+}
+.slider-section__title.slider-section__title--pink {
+  background-color: #ff6969;
+}
 .slider-section__slider .swiper-wrapper {
   -webkit-padding-before: 1.25rem;
           padding-block-start: 1.25rem;
@@ -679,7 +703,6 @@ body {
 }
 
 .header {
-  position: fixed;
   z-index: 100;
   inset-inline-start: 0;
   inset-block-start: 0;
@@ -697,9 +720,11 @@ body {
   z-index: 1;
 }
 .header.header--light {
+  position: fixed;
   color: #ffffff;
 }
 .header.header--dark {
+  position: sticky;
   color: #495560;
   background-color: #ffffff;
   border-bottom: 0.0625rem solid #e6e6e6;
@@ -3058,6 +3083,19 @@ body {
   color: #7bbcb0;
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.specials__container {
+  -webkit-padding-before: 3.4375rem;
+          padding-block-start: 3.4375rem;
+}
+.specials__header {
+  -webkit-padding-after: 1.875rem;
+          padding-block-end: 1.875rem;
+  border-bottom: 0.0625rem solid #cedadf;
+}
+.specials__header .section-header__title, .specials__header .slider-section__title, .specials__header .city-banner__city-name, .specials__header .tour__article-title, .specials__header .tour__article-subtitle, .specials__header .tour__article-content-section-title, .specials__header .booking__title, .specials__header .review__title {
+  font-size: 1.375rem;
 }
 
 .footer {

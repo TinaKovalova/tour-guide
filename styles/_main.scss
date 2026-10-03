@@ -2002,3 +2002,20 @@
         font-weight: 600;
     }
 }
+.specials {
+    // .specials__container
+
+    &__container {
+        padding-block-start: toRem(55);
+    }
+
+    // .specials__header
+
+    &__header {
+        padding-block-end: toRem(30);
+        border-bottom: toRem(1) solid #cedadf;
+        & .section-header__title {
+            font-size: toRem(22);
+        }
+    }
+}
