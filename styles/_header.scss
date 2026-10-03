@@ -4,6 +4,7 @@
     inset-inline-start: 0;
     inset-block-start: 0;
     min-width: 100%;
+    transition: all 0.4s ease;
     &::before {
         content: "";
         width: 100%;
@@ -18,6 +19,7 @@
     }
     &.header--dark {
         color: $darkColor-80;
+        background-color: $whiteColor;
         border-bottom: toRem(1) solid #e6e6e6;
     }
     // .header__container

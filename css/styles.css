@@ -684,6 +684,8 @@ body {
   inset-inline-start: 0;
   inset-block-start: 0;
   min-width: 100%;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 .header::before {
   content: "";
@@ -699,6 +701,7 @@ body {
 }
 .header.header--dark {
   color: #495560;
+  background-color: #ffffff;
   border-bottom: 0.0625rem solid #e6e6e6;
 }
 .header__container {
