@@ -33,7 +33,10 @@
         position: relative;
         z-index: 1;
         column-gap: toRem(40);
-        padding-block: toRem(20);
+        padding-block: toRem(10);
+        @media (min-width: toRem(992)) {
+            padding-block: toRem(20);
+        }
     }
 
     // .header__logo
