@@ -458,17 +458,9 @@
         line-height: 1.273; /* 28/22 */
         &.slider-section__title--lable {
             flex-basis: toRem(160);
-            font-family: "Mulish", sans-serif;
             font-size: toRem(12);
             line-height: 1.25; /* 15/12 */
-            font-weight: 800;
-            text-align: center;
-            text-transform: uppercase;
-            color: $whiteColor;
-            border-radius: toRem(30);
-            padding-block: toRem(12.5);
-            padding-inline: toRem(22.5);
-            background-color: $lightGrayColor;
+            @include label-style(12.5, 22.5);
         }
         &.slider-section__title--mint {
             background-color: $mintColor;

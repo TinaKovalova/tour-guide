@@ -1905,6 +1905,51 @@
             flex-grow: 1;
         }
     }
+    // .activities__select-form
+
+    &__select-form {
+        flex-basis: toRem(270);
+    }
+
+    //activities__wrapper
+    &__wrapper {
+        background-color: #f9fafd;
+        & .activities__container {
+            padding-block-start: toRem(30);
+            padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
+            display: flex;
+            column-gap: toRem(30);
+        }
+    }
+
+    //activities__content
+    &__content {
+        flex-grow: 1;
+    }
+    // .activities__selected
+
+    &__selected {
+        margin-block-end: toRem(30);
+        & > *:not(:last-child) {
+            margin-block-end: toRem(10);
+        }
+    }
+    //activities__selected-button
+    &__selected-button {
+        width: 100%;
+        border-color: $mintColor;
+        background-color: $whiteColor;
+        color: $mintColor;
+        font-weight: 700;
+        line-height: 1.13;
+        padding-block: toRem(15);
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $mintColor;
+                color: $whiteColor;
+            }
+        }
+    }
 }
 
 .sorting {
@@ -1998,5 +2043,194 @@
                 order: 2;
             }
         }
+    }
+}
+
+.activities-select-form {
+}
+.activity-card {
+    border-radius: toRem(4);
+    background-color: $whiteColor;
+    overflow: hidden;
+    box-shadow: 0 toRem(8) toRem(34) rgba(0, 0, 0, 0.06);
+
+    // .activity-card__link
+
+    &__link {
+        display: flex;
+
+        @media (max-width: toRem(530)) {
+            flex-wrap: wrap;
+        }
+    }
+
+    // .activity-card__image-wrapper
+
+    &__image-wrapper {
+        flex-shrink: 0;
+        border-radius: toRem(4);
+        width: toRem(150);
+        aspect-ratio: 150 / 140;
+        overflow: hidden;
+        background-color: #e2e6ee;
+        @media (max-width: toRem(530)) {
+            flex-grow: 1;
+            aspect-ratio: 150 / 100;
+        }
+    }
+
+    // .activity-card__image
+
+    &__image {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        aspect-ratio: 150 / 140;
+    }
+
+    // .activity-card__content-wrapper
+
+    &__content-wrapper {
+        flex-grow: 1;
+        padding-block: toRem(20);
+        padding-inline: toRem(10);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: toRem(20);
+
+        @media (min-width: toRem(992)) {
+            padding-inline-start: toRem(20);
+            padding-inline-end: toRem(30);
+        }
+    }
+
+    // .activity-card__content
+
+    &__content {
+        flex-grow: 1;
+        min-width: toRem(280);
+        & > *:not(:last-child) {
+            margin-block-end: toRem(11);
+        }
+    }
+
+    // .activity-card__top
+
+    &__top {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: toRem(15);
+
+        @media (min-width: toRem(768)) {
+            &::before {
+                content: "";
+                height: 1.273em; /* 14/11 */
+                width: toRem(1);
+                background-color: $lightGrayColor;
+                order: 1;
+            }
+        }
+    }
+
+    // .activity-card__lable
+
+    &__lable {
+        flex-basis: toRem(130);
+        font-size: toRem(11);
+        line-height: 1.273; /* 14/11 */
+        @include label-style(6, 12.5, $mintColor);
+    }
+
+    // .activity-card__reviews-wrapper
+
+    &__reviews-wrapper {
+        order: 2;
+    }
+
+    // .activity-card__reviews
+
+    &__reviews {
+        font-family: "Mulish", sans-serif;
+        display: flex;
+        align-items: center;
+        column-gap: toRem(6);
+    }
+
+    // .activity-card__rate
+
+    &__rate {
+    }
+
+    // .activity-card__reviews-text
+
+    &__reviews-text {
+        font-weight: 600;
+        font-size: toRem(12);
+        color: $darkColor-60;
+    }
+
+    // .activity-card__reviews-number
+
+    &__reviews-number {
+    }
+
+    // .activity-card__title
+
+    &__title {
+        font-family: "Volkhov", serif;
+        font-weight: 700;
+        font-size: toRem(20);
+        line-height: 1.1;
+        color: $mainDarkColor;
+        &:not(:last-child) {
+            margin-block-end: toRem(15);
+        }
+    }
+
+    // .activity-card__features
+
+    &__features {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: toRem(10) toRem(15);
+        font-weight: 600;
+        font-size: toRem(14);
+        color: $darkColor-80;
+        @include children-separator($margin-left: 8);
+    }
+
+    // .activity-card__features-item
+
+    &__features-item {
+        display: flex;
+        column-gap: toRem(7);
+        align-items: center;
+    }
+
+    // .activity-card__price
+
+    &__price {
+        // margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 600;
+        font-size: toRem(12);
+        color: $darkColor-60;
+        & span {
+            font-family: "Volkhov", sans-serif;
+            font-weight: 700;
+            font-size: toRem(20);
+            line-height: 1.3;
+            color: $mintColor;
+        }
+    }
+
+    // .activity-card__price-number
+
+    &__price-number {
     }
 }
