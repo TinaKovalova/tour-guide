@@ -70,160 +70,166 @@
                 </div>
                 <div class="activities__wrapper">
                     <div class="activities__container">
-                        <aside class="activities__filter filter-activity">
-                            <section class="filter-activity__avaliability booking">
-                                <div class="booking__header">
-                                    <h3 class="booking__title">Availability</h3>
-                                </div>
-                                <div class="booking__wrapper">
-                                    <form action="#" method="post" class="booking-form" name="booking-form"
-                                        id="bookingForm">
-                                        <div class="booking-form__row">
-                                            <label for="fromDate" class="booking-form__label">From</label>
-                                            <input type="date" id="fromDate" name="fromDate" class="booking-form__input"
-                                                required>
-                                        </div>
-                                        <div class="booking-form__row">
-                                            <label for="arrivalDate" class="booking-form__label">To</label>
-                                            <input type="date" id="arrivalDate" name="arrivalDate"
-                                                class="booking-form__input" required>
-                                        </div>
-                                        <button type="submit" class="booking-form__button button button--mint">
-                                            check availability
-                                        </button>
-                                    </form>
-                            </section>
-                            <details class="filter-activity__details" open>
-                                <summary class="filter-activity__title"><span>Theme</span></summary>
-                                <div class="filter-activity__body">
-                                    <ul class="filter-activity__list">
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input"
-                                                name="water-activities" id="water-activities">
-                                            <label for="water-activities" class="filter-activity__lable">Water
-                                                activities</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input"
-                                                name="social-distancing" id="social-distancing">
-                                            <label for="social-distancing" class="filter-activity__lable">Good for
-                                                social distancing</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="adrenaline"
-                                                id="adrenaline">
-                                            <label for="adrenaline" class="filter-activity__lable">Adrenaline</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="nature"
-                                                id="nature">
-                                            <label for="nature" class="filter-activity__lable">Nature</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="hidden-gems"
-                                                id="hidden-gems">
-                                            <label for="hidden-gems" class="filter-activity__lable">Hidden gems</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="atreet-art"
-                                                id="atreet-art">
-                                            <label for="atreet-art" class="filter-activity__lable">Street art &
-                                                grafitti</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="food" id="food">
-                                            <label for="food" class="filter-activity__lable">Food</label>
-                                        </li>
-                                    </ul>
-                                    <button class="filter-activity__more-button">Show More Destinations</button>
-                                </div>
+                        <div class="activities__aside-wrapper">
+                            <aside class="activities__filter filter-activity">
+                                <section class="filter-activity__avaliability booking">
+                                    <div class="booking__header">
+                                        <h3 class="booking__title">Availability</h3>
+                                    </div>
+                                    <div class="booking__wrapper">
+                                        <form action="#" method="post" class="booking-form" name="booking-form"
+                                            id="bookingForm">
+                                            <div class="booking-form__row">
+                                                <label for="fromDate" class="booking-form__label">From</label>
+                                                <input type="date" id="fromDate" name="fromDate"
+                                                    class="booking-form__input" required>
+                                            </div>
+                                            <div class="booking-form__row">
+                                                <label for="arrivalDate" class="booking-form__label">To</label>
+                                                <input type="date" id="arrivalDate" name="arrivalDate"
+                                                    class="booking-form__input" required>
+                                            </div>
+                                            <button type="submit" class="booking-form__button button button--mint">
+                                                check availability
+                                            </button>
+                                        </form>
+                                </section>
+                                <details class="filter-activity__details" open>
+                                    <summary class="filter-activity__title"><span>Theme</span></summary>
+                                    <div class="filter-activity__body">
+                                        <ul class="filter-activity__list">
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="water-activities" id="water-activities">
+                                                <label for="water-activities" class="filter-activity__lable">Water
+                                                    activities</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="social-distancing" id="social-distancing">
+                                                <label for="social-distancing" class="filter-activity__lable">Good for
+                                                    social distancing</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="adrenaline"
+                                                    id="adrenaline">
+                                                <label for="adrenaline"
+                                                    class="filter-activity__lable">Adrenaline</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="nature"
+                                                    id="nature">
+                                                <label for="nature" class="filter-activity__lable">Nature</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="hidden-gems"
+                                                    id="hidden-gems">
+                                                <label for="hidden-gems" class="filter-activity__lable">Hidden
+                                                    gems</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="atreet-art"
+                                                    id="atreet-art">
+                                                <label for="atreet-art" class="filter-activity__lable">Street art &
+                                                    grafitti</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="food"
+                                                    id="food">
+                                                <label for="food" class="filter-activity__lable">Food</label>
+                                            </li>
+                                        </ul>
+                                        <button class="filter-activity__more-button">Show More Destinations</button>
+                                    </div>
 
-                            </details>
-                            <details class="filter-activity__details" open>
-                                <summary class="filter-activity__title"><span>Duration</span></summary>
-                                <div class="filter-activity__body">
-                                    <ul class="filter-activity__list">
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="0-3-hours"
-                                                id="0-3-hours">
-                                            <label for="0-3-hours" class="filter-activity__lable">0-3 hours</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="3-5-hours"
-                                                id="3-5-hours">
-                                            <label for="3-5-hours" class="filter-activity__lable">3-5 hours</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="5-7-hours"
-                                                id="5-7-hours">
-                                            <label for="5-7-hours" class="filter-activity__lable">5-7 hours</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="full-day"
-                                                id="full-day">
-                                            <label for="full-day" class="filter-activity__lable">Full day (7+
-                                                hours)</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="multi-days"
-                                                id="multi-days">
-                                            <label for="multi-days" class="filter-activity__lable">Multi-day</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </details>
-                            <details class="filter-activity__details" open>
-                                <summary class="filter-activity__title"><span>Destination</span></summary>
-                                <div class="filter-activity__body">
-                                    <ul class="filter-activity__list">
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="biscayne-bay"
-                                                id="biscayne-bay">
-                                            <label for="biscayne-bay" class="filter-activity__lable">Biscayne
-                                                Bay</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="downtown-miami"
-                                                id="downtown-miami">
-                                            <label for="downtown-miami" class="filter-activity__lable">Downtown
-                                                Miami</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input"
-                                                name="wynwood-arts-district" id="wynwood-arts-district">
-                                            <label for="wynwood-arts-district" class="filter-activity__lable">Wynwood
-                                                Arts District</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="port-of-miami"
-                                                id="port-of-miami">
-                                            <label for="port-of-miami" class="filter-activity__lable">Port of
-                                                Miami</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input"
-                                                name="everglades-national-park" id="everglades-national-park">
-                                            <label for="everglades-national-park"
-                                                class="filter-activity__lable">Everglades National Park</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="fisher-island"
-                                                id="fisher-island">
-                                            <label for="fisher-island" class="filter-activity__lable">Fisher
-                                                Island</label>
-                                        </li>
-                                        <li class="filter-activity__item">
-                                            <input type="checkbox" class="filter-activity__input" name="coconut-grove"
-                                                id="coconut-grove">
-                                            <label for="coconut-grove" class="filter-activity__lable">Coconut
-                                                Grove</label>
-                                        </li>
-                                    </ul>
-                                    <button class="filter-activity__more-button">Show More Destinations</button>
-                                </div>
+                                </details>
+                                <details class="filter-activity__details" open>
+                                    <summary class="filter-activity__title"><span>Duration</span></summary>
+                                    <div class="filter-activity__body">
+                                        <ul class="filter-activity__list">
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="0-3-hours"
+                                                    id="0-3-hours">
+                                                <label for="0-3-hours" class="filter-activity__lable">0-3 hours</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="3-5-hours"
+                                                    id="3-5-hours">
+                                                <label for="3-5-hours" class="filter-activity__lable">3-5 hours</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="5-7-hours"
+                                                    id="5-7-hours">
+                                                <label for="5-7-hours" class="filter-activity__lable">5-7 hours</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="full-day"
+                                                    id="full-day">
+                                                <label for="full-day" class="filter-activity__lable">Full day (7+
+                                                    hours)</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input" name="multi-days"
+                                                    id="multi-days">
+                                                <label for="multi-days" class="filter-activity__lable">Multi-day</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <details class="filter-activity__details" open>
+                                    <summary class="filter-activity__title"><span>Destination</span></summary>
+                                    <div class="filter-activity__body">
+                                        <ul class="filter-activity__list">
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="biscayne-bay" id="biscayne-bay">
+                                                <label for="biscayne-bay" class="filter-activity__lable">Biscayne
+                                                    Bay</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="downtown-miami" id="downtown-miami">
+                                                <label for="downtown-miami" class="filter-activity__lable">Downtown
+                                                    Miami</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="wynwood-arts-district" id="wynwood-arts-district">
+                                                <label for="wynwood-arts-district"
+                                                    class="filter-activity__lable">Wynwood
+                                                    Arts District</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="port-of-miami" id="port-of-miami">
+                                                <label for="port-of-miami" class="filter-activity__lable">Port of
+                                                    Miami</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="everglades-national-park" id="everglades-national-park">
+                                                <label for="everglades-national-park"
+                                                    class="filter-activity__lable">Everglades National Park</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="fisher-island" id="fisher-island">
+                                                <label for="fisher-island" class="filter-activity__lable">Fisher
+                                                    Island</label>
+                                            </li>
+                                            <li class="filter-activity__item">
+                                                <input type="checkbox" class="filter-activity__input"
+                                                    name="coconut-grove" id="coconut-grove">
+                                                <label for="coconut-grove" class="filter-activity__lable">Coconut
+                                                    Grove</label>
+                                            </li>
+                                        </ul>
+                                        <button class="filter-activity__more-button">Show More Destinations</button>
+                                    </div>
 
-                            </details>
-                        </aside>
+                                </details>
+                            </aside>
+                        </div>
                         <div class="activities__content">
                             <div class="activities__selected">
                                 <article class="activity-card">

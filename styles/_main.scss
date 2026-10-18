@@ -1299,7 +1299,6 @@
 
     &__select {
         appearance: none;
-
         transition: all 0.4s ease;
         @supports not (appearance: base-select) {
             background:
@@ -1879,10 +1878,12 @@
     // .activities__container
 
     &__container {
-        display: flex;
-        gap: toRem(10) toRem(15);
-        @media (max-width: toRem(550)) {
-            flex-wrap: wrap;
+        position: relative;
+        @media (min-width: toRem(768)) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: toRem(10) toRem(15);
         }
         @media (min-width: toRem(992)) {
             column-gap: toRem(30);
@@ -1907,11 +1908,23 @@
             flex-grow: 1;
         }
     }
+    // activities__aside-wrapper
+    &__aside-wrapper {
+        width: 23.0769%; /* 270/1170 */
+        min-width: toRem(200);
+        @media (max-width: toRem(767.98)) {
+            position: absolute;
+            min-height: 100%;
+        }
+    }
 
     //activities__filter
     &__filter {
-        flex-basis: toRem(270);
-        min-width: toRem(180);
+        min-width: toRem(200);
+        position: sticky;
+        top: var(--header-height);
+        z-index: 2;
+
         & .booking__header {
             padding-block: 0;
         }
@@ -1927,6 +1940,19 @@
             text-transform: capitalize;
             color: $mainDarkColor;
         }
+
+        @media (max-width: toRem(767.98)) {
+            // position: absolute;
+
+            // transform: translateX(-110%);
+            // &.active {
+            //     transform: translateX(0);
+            // }
+        }
+        // @media (min-width: toRem(768)) {
+        //     position: sticky;
+        //     top: var(--header-height);
+        // }
     }
 
     //activities__wrapper
@@ -1941,7 +1967,11 @@
 
     //activities__content
     &__content {
-        flex-grow: 1;
+        width: 100%;
+        @media (min-width: toRem(768)) {
+            width: auto;
+            flex-grow: 1;
+        }
     }
     // .activities__selected
 
@@ -2064,6 +2094,7 @@
 }
 
 .filter-activity {
+    background-color: #f9fafd;
     & > *:not(:last-child) {
         margin-block-end: toRem(10);
     }
@@ -2180,42 +2211,5 @@
         text-align: start;
         background-color: transparent;
         @include hover-line;
-    }
-}
-.booking {
-    // .booking__header
-
-    &__header {
-    }
-
-    // .booking__title
-
-    &__title {
-    }
-
-    // .booking__wrapper
-
-    &__wrapper {
-    }
-}
-.booking-form {
-    // .booking-form__row
-
-    &__row {
-    }
-
-    // .booking-form__label
-
-    &__label {
-    }
-
-    // .booking-form__input
-
-    &__input {
-    }
-
-    // .booking-form__button
-
-    &__button {
     }
 }
