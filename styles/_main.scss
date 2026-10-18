@@ -1880,10 +1880,12 @@
 
     &__container {
         display: flex;
-        align-items: center;
-        gap: toRem(10) toRem(30);
+        gap: toRem(10) toRem(15);
         @media (max-width: toRem(550)) {
             flex-wrap: wrap;
+        }
+        @media (min-width: toRem(992)) {
+            column-gap: toRem(30);
         }
     }
 
@@ -1905,10 +1907,26 @@
             flex-grow: 1;
         }
     }
-    // .activities__select-form
 
-    &__select-form {
+    //activities__filter
+    &__filter {
         flex-basis: toRem(270);
+        min-width: toRem(180);
+        & .booking__header {
+            padding-block: 0;
+        }
+        & .booking-form__button {
+            font-weight: 700;
+        }
+        & [class$="__title"] {
+            padding-block-start: toRem(14);
+            padding-block-end: toRem(18);
+            font-weight: 700;
+            font-size: toRem(18);
+            line-height: 1;
+            text-transform: capitalize;
+            color: $mainDarkColor;
+        }
     }
 
     //activities__wrapper
@@ -1918,7 +1936,6 @@
             padding-block-start: toRem(30);
             padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
             display: flex;
-            column-gap: toRem(30);
         }
     }
 
@@ -2046,191 +2063,159 @@
     }
 }
 
-.activities-select-form {
-}
-.activity-card {
-    border-radius: toRem(4);
-    background-color: $whiteColor;
-    overflow: hidden;
-    box-shadow: 0 toRem(8) toRem(34) rgba(0, 0, 0, 0.06);
+.filter-activity {
+    & > *:not(:last-child) {
+        margin-block-end: toRem(10);
+    }
+    // .filter-activity__avaliability
 
-    // .activity-card__link
-
-    &__link {
-        display: flex;
-
-        @media (max-width: toRem(530)) {
-            flex-wrap: wrap;
-        }
+    &__avaliability {
     }
 
-    // .activity-card__image-wrapper
+    // .filter-activity__details
 
-    &__image-wrapper {
-        flex-shrink: 0;
+    &__details {
         border-radius: toRem(4);
-        width: toRem(150);
-        aspect-ratio: 150 / 140;
-        overflow: hidden;
-        background-color: #e2e6ee;
-        @media (max-width: toRem(530)) {
+        box-shadow: 0 toREm(4) toRem(10) rgba(0, 0, 0, 0.1);
+        background: #fff;
+    }
+
+    // .filter-activity__title
+
+    summary.filter-activity__title {
+        list-style: none;
+        padding-inline: toRem(15);
+        display: flex;
+        column-gap: toRem(10);
+        & span {
             flex-grow: 1;
-            aspect-ratio: 150 / 100;
         }
-    }
-
-    // .activity-card__image
-
-    &__image {
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        aspect-ratio: 150 / 140;
-    }
-
-    // .activity-card__content-wrapper
-
-    &__content-wrapper {
-        flex-grow: 1;
-        padding-block: toRem(20);
-        padding-inline: toRem(10);
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: toRem(20);
-
-        @media (min-width: toRem(992)) {
-            padding-inline-start: toRem(20);
-            padding-inline-end: toRem(30);
+        &::after {
+            content: "";
+            width: toRem(14);
+            height: toRem(14);
+            background-color: #495560;
+            mask: url("../assets/images/icons/dropdown-arrow.svg") 92% center / toRem(9.63) toRem(5.8) no-repeat;
+            transform: rotate(180deg);
+            transform-origin: center center;
+            transition: transform 0.4s ease;
         }
-    }
 
-    // .activity-card__content
-
-    &__content {
-        flex-grow: 1;
-        min-width: toRem(280);
-        & > *:not(:last-child) {
-            margin-block-end: toRem(11);
-        }
-    }
-
-    // .activity-card__top
-
-    &__top {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: toRem(15);
-
-        @media (min-width: toRem(768)) {
-            &::before {
-                content: "";
-                height: 1.273em; /* 14/11 */
-                width: toRem(1);
-                background-color: $lightGrayColor;
-                order: 1;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $mintColor;
+                &::after {
+                    background-color: $mintColor;
+                }
             }
         }
+
+        @media (min-width: toRem(992)) {
+            padding-inline-start: toRem(30);
+            padding-inline-end: toRem(16);
+        }
+    }
+    [open] summary.filter-activity__title {
+        &::after {
+            transform: rotate(0);
+        }
     }
 
-    // .activity-card__lable
+    // .filter-activity__body
+
+    &__body {
+        border-top: toRem(1) solid #f4f4f5;
+        padding-block-start: toRem(22);
+        padding-block-end: toRem(15);
+        padding-inline: toRem(15);
+        @media (min-width: toRem(992)) {
+            padding-block-end: toRem(30);
+            padding-inline: toRem(30);
+        }
+    }
+
+    // .filter-activity__list
+
+    &__list {
+        &:not(:last-child) {
+            margin-block-end: toRem(7);
+        }
+    }
+
+    // .filter-activity__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        column-gap: toRem(10);
+        color: $darkColor-80;
+        padding-block: toRem(6);
+    }
+
+    // .filter-activity__input
+
+    &__input {
+        width: toRem(14);
+        height: toRem(14);
+        border-radius: toRem(2);
+        border: toRem(1) solid $darkColor-80;
+    }
+
+    // .filter-activity__lable
 
     &__lable {
-        flex-basis: toRem(130);
-        font-size: toRem(11);
-        line-height: 1.273; /* 14/11 */
-        @include label-style(6, 12.5, $mintColor);
+        font-size: toRem(14);
     }
 
-    // .activity-card__reviews-wrapper
+    // .filter-activity__more-button
 
-    &__reviews-wrapper {
-        order: 2;
+    &__more-button {
+        border-radius: toRem(3);
+        font-weight: 700;
+        font-size: toRem(14);
+        line-height: 1;
+        padding-block: toRem(7.98);
+        color: $mintColor;
+        text-transform: capitalize;
+        text-align: start;
+        background-color: transparent;
+        @include hover-line;
+    }
+}
+.booking {
+    // .booking__header
+
+    &__header {
     }
 
-    // .activity-card__reviews
-
-    &__reviews {
-        font-family: "Mulish", sans-serif;
-        display: flex;
-        align-items: center;
-        column-gap: toRem(6);
-    }
-
-    // .activity-card__rate
-
-    &__rate {
-    }
-
-    // .activity-card__reviews-text
-
-    &__reviews-text {
-        font-weight: 600;
-        font-size: toRem(12);
-        color: $darkColor-60;
-    }
-
-    // .activity-card__reviews-number
-
-    &__reviews-number {
-    }
-
-    // .activity-card__title
+    // .booking__title
 
     &__title {
-        font-family: "Volkhov", serif;
-        font-weight: 700;
-        font-size: toRem(20);
-        line-height: 1.1;
-        color: $mainDarkColor;
-        &:not(:last-child) {
-            margin-block-end: toRem(15);
-        }
     }
 
-    // .activity-card__features
+    // .booking__wrapper
 
-    &__features {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: toRem(10) toRem(15);
-        font-weight: 600;
-        font-size: toRem(14);
-        color: $darkColor-80;
-        @include children-separator($margin-left: 8);
+    &__wrapper {
+    }
+}
+.booking-form {
+    // .booking-form__row
+
+    &__row {
     }
 
-    // .activity-card__features-item
+    // .booking-form__label
 
-    &__features-item {
-        display: flex;
-        column-gap: toRem(7);
-        align-items: center;
+    &__label {
     }
 
-    // .activity-card__price
+    // .booking-form__input
 
-    &__price {
-        // margin-left: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-weight: 600;
-        font-size: toRem(12);
-        color: $darkColor-60;
-        & span {
-            font-family: "Volkhov", sans-serif;
-            font-weight: 700;
-            font-size: toRem(20);
-            line-height: 1.3;
-            color: $mintColor;
-        }
+    &__input {
     }
 
-    // .activity-card__price-number
+    // .booking-form__button
 
-    &__price-number {
+    &__button {
     }
 }
