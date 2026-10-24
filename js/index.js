@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
     const menu = header.querySelector(".burger-menu");
     const bookingButton = document.querySelector(".booking__active-button");
+  const filterActivity = document.querySelector(".filter-activity");
+  const filterActivityDetail = filterActivity?.querySelectorAll(".filter-activity__details");
+  const activityFilterButton = filterActivity?.querySelector(".filter-activity__filter-active-button");
+
    
     burgerButton?.addEventListener("click", (e) => {
         navigation?.classList.toggle("active");
@@ -17,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navigation.classList.remove("active");
         }
     })
+    
      window.addEventListener("load", () => {
          const headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
          document.documentElement.style.setProperty(
@@ -25,7 +30,33 @@ document.addEventListener("DOMContentLoaded", () => {
        );
      });
   
+  
+  const mediaQueryList = window.matchMedia("(width>=768px)");
+  const mqlMatches = mediaQueryList.matches;
+  if (mqlMatches) {
+    filterActivityDetail?.forEach((detail) => {
+      detail.setAttribute("open", mqlMatches);
+    });
+  } else {
+    filterActivityDetail?.forEach((detail) => {
+      if (detail.hasAttribute("open")) {
+         detail.removeAttribute("open")
+       } 
+     });
+  }
 
+  activityFilterButton?.addEventListener("click", (e) => {
+    const targetParent = e.target.closest(".activities__aside-wrapper");
+    e.target.classList.toggle("active");
+    targetParent.classList.toggle("active");
+    
+  }
+  )
+
+  
+
+  
+ 
   if (location.pathname ==="/") {
         window.addEventListener("scroll", () => {
           let scrollPosition =

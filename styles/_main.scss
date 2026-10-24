@@ -1177,20 +1177,23 @@
     }
     //booking__active-button
     &__active-button {
-        font-weight: 800;
+        border: toRem(1) solid rgba(255, 218, 50, 1);
+        background-color: #ffc400;
+        box-shadow: 0 toRem(8) toRem(20) rgba(255, 218, 50, 0.5);
+        border-radius: toRem(3);
+        width: toRem(40);
+        height: toRem(40);
+        font-size: toRem(24);
+        font-weight: 500;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         column-gap: toRem(7);
-        padding: toRem(10);
-        border: 2px solid $orangeColor;
         transition: transform 0.4s ease;
-        &::before {
-            rotate: 180deg;
-        }
+
         .active &::before {
-            rotate: 360deg;
+            content: "\e904";
         }
         @media (max-width: toRem(479.98)) {
             .active & {
@@ -1212,6 +1215,7 @@
                 inset-inline-start: 0;
                 inset-block-start: 0;
                 transform: translateX(0);
+                background-color: rgba(255, 218, 50, 0.5);
             }
             .active & span {
                 display: none;
@@ -1881,7 +1885,6 @@
         position: relative;
         @media (min-width: toRem(768)) {
             display: flex;
-            align-items: flex-start;
             justify-content: flex-end;
             gap: toRem(10) toRem(15);
         }
@@ -1915,6 +1918,19 @@
         @media (max-width: toRem(767.98)) {
             position: absolute;
             min-height: 100%;
+            transform: translateX(calc(-100% - toRem($containerPadding)));
+            transition: transform 0.4s ease;
+            &.active {
+                transform: translateX(0);
+                width: 45vw;
+                min-width: toRem(280);
+            }
+        }
+        @media (max-width: toRem(479.98)) {
+            &.active {
+                width: calc(100% - toRem($containerPadding * 2));
+                min-width: calc(100% - toRem($containerPadding * 2));
+            }
         }
     }
 
@@ -1942,17 +1958,7 @@
         }
 
         @media (max-width: toRem(767.98)) {
-            // position: absolute;
-
-            // transform: translateX(-110%);
-            // &.active {
-            //     transform: translateX(0);
-            // }
         }
-        // @media (min-width: toRem(768)) {
-        //     position: sticky;
-        //     top: var(--header-height);
-        // }
     }
 
     //activities__wrapper
@@ -2098,11 +2104,34 @@
     & > *:not(:last-child) {
         margin-block-end: toRem(10);
     }
-    // .filter-activity__avaliability
-
-    &__avaliability {
+    // .filter-activity__filter-active-button
+    &__filter-active-button {
+        border: toRem(1) solid rgba(255, 218, 50, 1);
+        background-color: #ffc400;
+        box-shadow: 0 toRem(8) toRem(20) rgba(255, 218, 50, 0.5);
+        border-radius: toRem(3);
+        width: toRem(40);
+        height: toRem(40);
+        font-size: toRem(24);
+        font-weight: 500;
+        position: absolute;
+        inset-inline-start: 0;
+        inset-inline-start: calc(100% + toRem($containerPadding));
+        transform: translate(0, 10%);
+        transition:
+            transform 0.4s ease,
+            inset-inline-start 0.4s ease;
+        &.active {
+            background-color: rgba(255, 218, 50, 0.5);
+            inset-inline-start: calc(100%);
+            transform: translate(-110%, 10%);
+            &::before {
+                transform: rotateY(180deg);
+                content: "\e904";
+            }
+        }
     }
-
+    
     // .filter-activity__details
 
     &__details {
