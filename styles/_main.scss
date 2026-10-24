@@ -1591,15 +1591,14 @@
         }
     }
 
-    //form-review__label
-    &__label {
+    //form-review__fields-cell
+    &__fields-cell {
         flex-basis: toRem(200);
-        min-width: toRem(200);
+        min-width: toRem(250);
         display: flex;
-        align-items: baseline;
         column-gap: toRem(5);
-        align-items: center;
-        padding-block: toRem(16);
+        min-height: toRem(56);
+        padding-block: toRem(8);
         padding-inline-start: toRem(20);
         padding-inline-end: toRem(18);
         font-weight: 600;
@@ -1610,11 +1609,18 @@
             flex-shrink: 0;
         }
         & span {
+            align-content: center;
             min-width: fit-content;
             color: $darkColor-80;
         }
+        &::before {
+            align-content: center;
+        }
         &:focus-within {
             background-color: lightGrayColor;
+        }
+        &:has(.form-review__search) {
+            flex-grow: 1;
         }
         @media (max-width: toRem(991.98)) {
             flex-grow: 1;
@@ -2131,7 +2137,7 @@
             }
         }
     }
-    
+
     // .filter-activity__details
 
     &__details {
