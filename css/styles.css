@@ -3677,6 +3677,11 @@ body {
           transform: rotateY(180deg);
   content: "\e904";
 }
+@media (min-width: 48rem) {
+  .filter-activity__filter-active-button {
+    display: none;
+  }
+}
 .filter-activity__details {
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 toREm(4) 0.625rem rgba(0, 0, 0, 0.1);

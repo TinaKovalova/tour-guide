@@ -52,10 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
   }
   )
-
-  
-
-  
+ 
  
   if (location.pathname ==="/") {
         window.addEventListener("scroll", () => {
