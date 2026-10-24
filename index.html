@@ -35,7 +35,6 @@
                 </nav>
                 <div class="actions" data-da=".burger-menu,991.98,0">
                     <a href="#" class="actions__button button button--yellow">sign In</a>
-
                 </div>
                 <button class="burger-button"></button>
             </div>
@@ -44,11 +43,14 @@
         <main class="page">
             <section class="hero">
                 <div class="hero__content-wrapper">
-                    <video class="hero__video">
-                        <source src="#" type="video/mp4">
-                        <source src="#" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
+                    <dialog id="video-dialog" class="hero__dialog video-dialog">
+                        <button command="close" commandfor="video-dialog"
+                            class="video-dialog__button icon-close"></button>
+                        <video class="video-dialog__video" controls>
+                            <source src="assets/videos/hero.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </dialog>
                     <div class="hero__container">
                         <div class="hero__section-header section-header section-header--centered section-header--main ">
                             <h1 class="section-header__title">
@@ -60,7 +62,8 @@
                                 mollit. Exercitation veniam consequat sunt nostrud amet.
                             </div>
                         </div>
-                        <button type="button" class="hero__play-button">
+                        <button type="button" class="hero__play-button" id="video-button" command="show-modal"
+                            commandfor="video-dialog">
                             <span class="hero__play-button-icon">
                                 <span class="hero__play-button-image icon-play"></span>
                             </span>
@@ -935,6 +938,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="js/dynamic_adapt.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/sliders/main-page-sliders.js"></script>
 </body>
 
 </html>

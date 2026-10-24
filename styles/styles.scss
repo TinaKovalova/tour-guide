@@ -12,6 +12,9 @@ html {
     :target {
         scroll-padding-top: var(--header-height);
     }
+    &:has(.video-dialog[open], .navigation.active) {
+        overflow-y: hidden;
+    }
 }
 
 body {

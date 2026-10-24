@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const burgerButton = document.querySelector(".burger-button");
     const header = document.querySelector(".header");
     const menu = header.querySelector(".burger-menu");
+    const videoDialog = document.querySelector("#video-dialog");
+    const videoOpenButton = document.querySelector(".hero__play-button");
     const bookingButton = document.querySelector(".booking__active-button");
-  const filterActivity = document.querySelector(".filter-activity");
-  const filterActivityDetail = filterActivity?.querySelectorAll(".filter-activity__details");
-  const activityFilterButton = filterActivity?.querySelector(".filter-activity__filter-active-button");
+    const filterActivity = document.querySelector(".filter-activity");
+    const filterActivityDetail = filterActivity?.querySelectorAll(".filter-activity__details");
+    const activityFilterButton = filterActivity?.querySelector(".filter-activity__filter-active-button");
 
-   
     burgerButton?.addEventListener("click", (e) => {
         navigation?.classList.toggle("active");
         console.log(e.currentTarget);
@@ -22,108 +23,60 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     
-     window.addEventListener("load", () => {
-         const headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
-         document.documentElement.style.setProperty(
-         "--header-height",
-         `${parseFloat(headerHeight) / 16}rem`,
-       );
-     });
-  
-  
-  const mediaQueryList = window.matchMedia("(width>=768px)");
-  const mqlMatches = mediaQueryList.matches;
-  if (mqlMatches) {
-    filterActivityDetail?.forEach((detail) => {
-      detail.setAttribute("open", mqlMatches);
-    });
-  } else {
-    filterActivityDetail?.forEach((detail) => {
-      if (detail.hasAttribute("open")) {
-         detail.removeAttribute("open")
-       } 
-     });
-  }
-
-  activityFilterButton?.addEventListener("click", (e) => {
-    const targetParent = e.target.closest(".activities__aside-wrapper");
-    e.target.classList.toggle("active");
-    targetParent.classList.toggle("active");
-    
-  }
-  )
- 
- 
-  if (location.pathname ==="/") {
-        window.addEventListener("scroll", () => {
-          let scrollPosition =
-            window.scrollY || document.documentElement.scrollTop;
-          if (
-            scrollPosition > header.offsetHeight && header.classList.contains("header--light")) {
-            header.classList.remove("header--light");
-            header.classList.add("header--dark");
-          }
-          if (scrollPosition <= header.offsetHeight && header.classList.contains("header--dark")) {
-            header.classList.remove("header--dark");
-            header.classList.add("header--light");
-          }
-        });
-     }
- 
-    
-    const featuredSwiper = new Swiper("#featured-slider", {
-      slidesPerView: "auto",
-      centerInsufficientSlides: true,
-      navigation: {
-        nextEl:
-          ".featured__slider-controls .slider-controls__slider-button-next",
-        prevEl:
-          ".featured__slider-controls .slider-controls__slider-button-prev",
-      },
-      breakpoints: {
-        320: {
-          spaceBetween: 10,
-        },
-        480: {
-          spaceBetween: 15,
-        },
-        992: {
-          spaceBetween: 30,
-        },
-      },
+    window.addEventListener("load", () => {
+        const headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
+        document.documentElement.style.setProperty(
+        "--header-height",
+        `${parseFloat(headerHeight) / 16}rem`,
+      );
     });
   
-    //tour swiper
-    const tourSwiper = new Swiper(".tour-swiper", {
-      loop: true,
-      slidesPerView: 6,
-
-      freeMode: true,
-      watchSlidesProgress: true,
-      breakpoints: {
-        320: {
-          spaceBetween: 5,
-        },
-        992: {
-          spaceBetween: 10,
-        },
-      },
-    });
-    const tourSwiper2 = new Swiper(".tour-swiper2", {
-      loop: true,
-      spaceBetween: 10,
-      speed: 1500,
-      thumbs: {
-        swiper: tourSwiper,
-      },
-    });
-  bookingButton?.addEventListener("click", (e) => {
-    const bookingElement = e.target.closest(".booking");
-    if (bookingElement) {
-      console.log(true);
-      bookingElement.classList.toggle("active");
+  
+    const mediaQueryList = window.matchMedia("(width>=768px)");
+    const mqlMatches = mediaQueryList.matches;
+    if (mqlMatches) {
+      filterActivityDetail?.forEach((detail) => {
+        detail.setAttribute("open", mqlMatches);
+      });
+    } else {
+      filterActivityDetail?.forEach((detail) => {
+        if (detail.hasAttribute("open")) {
+          detail.removeAttribute("open");
+        }
+      });
     }
-  })
+
+    activityFilterButton?.addEventListener("click", (e) => {
+      const targetParent = e.target.closest(".activities__aside-wrapper");
+      e.target.classList.toggle("active");
+      targetParent.classList.toggle("active");
+    });
+
+    if (location.pathname ==="/") {
+          window.addEventListener("scroll", () => {
+            let scrollPosition =
+              window.scrollY || document.documentElement.scrollTop;
+            if (
+              scrollPosition > header.offsetHeight && header.classList.contains("header--light")) {
+              header.classList.remove("header--light");
+              header.classList.add("header--dark");
+            }
+            if (scrollPosition <= header.offsetHeight && header.classList.contains("header--dark")) {
+              header.classList.remove("header--dark");
+              header.classList.add("header--light");
+            }
+          });
+      }
+      
+    
+   
+    bookingButton?.addEventListener("click", (e) => {
+      const bookingElement = e.target.closest(".booking");
+      if (bookingElement) {
+        console.log(true);
+        bookingElement.classList.toggle("active");
+      }
+    })
 
     const tourDates = document.querySelectorAll(".booking-form__input[type='date']");
     if (tourDates.length > 0) {
@@ -131,45 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         (input) => (input.value = new Date().toISOString().split("T")[0]),
       );
     } 
-
-    const relatedTodaySwiper = new Swiper("#related-today-slider", {
-        slidesPerView: "auto",
-        centerInsufficientSlides: true,
-        navigation: {
-          nextEl: ".related-today .slider-controls__slider-button-next",
-          prevEl: ".related-today .slider-controls__slider-button-prev",
-        },
-        breakpoints: {
-          320: {
-            spaceBetween: 10,
-          },
-          480: {
-            spaceBetween: 15,
-          },
-          992: {
-            spaceBetween: 30,
-          },
-        },
-      });
-    const relatedSwiper = new Swiper("#related-slider", {
-        slidesPerView: "auto",
-        centerInsufficientSlides: true,
-        navigation: {
-          nextEl: ".related .slider-controls__slider-button-next",
-          prevEl: ".related .slider-controls__slider-button-prev",
-        },
-        breakpoints: {
-          320: {
-            spaceBetween: 10,
-          },
-          480: {
-            spaceBetween: 15,
-          },
-          992: {
-            spaceBetween: 30,
-          },
-        },
-      });
       
     const reviewScoreRow = document.querySelectorAll(".services-score__row");
     if (reviewScoreRow?.length > 0) {
@@ -182,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
         item.querySelector(".services-score__graphic-rate span").style.width =`${serviceRate/5*100}%`;
       })
     }
-  
   
 })
 
