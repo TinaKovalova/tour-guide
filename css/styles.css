@@ -2818,6 +2818,7 @@ body {
 }
 .booking-form__input, .booking-form__select {
   width: 100%;
+  min-width: 100%;
   border-radius: 0.1875rem;
   padding-inline: 1.25rem 0.8125rem;
   padding-block: 0.8125rem;

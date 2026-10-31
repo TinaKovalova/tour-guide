@@ -1337,6 +1337,7 @@
     &__input,
     &__select {
         width: 100%;
+        min-width: 100%;
         border-radius: toRem(3);
         padding-inline: toRem(20) toRem(13);
         padding-block: toRem(13);
