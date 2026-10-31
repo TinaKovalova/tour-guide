@@ -2819,6 +2819,9 @@ body {
 .booking-form__input, .booking-form__select {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-radius: 0.1875rem;
   padding-inline: 1.25rem 0.8125rem;
   padding-block: 0.8125rem;
