@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       targetParent.classList.toggle("active");
     });
 
-    if (location.pathname ==="/") {
+    if (location.pathname ==="/tour-guide/") {
           window.addEventListener("scroll", () => {
             let scrollPosition =
               window.scrollY || document.documentElement.scrollTop;
