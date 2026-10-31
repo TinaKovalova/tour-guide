@@ -2817,8 +2817,8 @@ body {
   color: #1c2b38;
 }
 .booking-form__input, .booking-form__select {
-  width: 100%;
-  min-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 0.1875rem;
   padding-inline: 1.25rem 0.8125rem;
   padding-block: 0.8125rem;
