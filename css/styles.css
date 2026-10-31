@@ -1319,6 +1319,7 @@ body {
 }
 
 .burger-menu {
+  line-height: 0;
   background-color: #7bbcb0;
   min-width: 50%;
   height: 100svh;
@@ -1326,8 +1327,6 @@ body {
   inset-inline-start: 100%;
   inset-block-start: 0;
   padding-inline: 1.875rem;
-  -webkit-padding-before: var(--header-height);
-          padding-block-start: var(--header-height);
   -webkit-padding-after: 1.875rem;
           padding-block-end: 1.875rem;
   -webkit-transform: translateX(100%);
@@ -1352,12 +1351,24 @@ body {
   -webkit-margin-after: 1.25rem;
           margin-block-end: 1.25rem;
 }
+.burger-menu::before {
+  content: "";
+  width: 100%;
+  height: calc(var(--header-height) + 0.9375rem);
+  background-color: inherit;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+}
+.burger-menu::before > *:not(:last-child) {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
 .burger-menu .actions {
   background-color: inherit;
   position: sticky;
   z-index: 1;
-  inset-block-start: 0rem;
-  padding-block: 0.9375rem;
+  inset-block-start: calc(var(--header-height) + 0.9375rem);
 }
 .burger-menu .actions .actions__button {
   -webkit-box-flex: 1;
@@ -2806,6 +2817,7 @@ body {
   color: #1c2b38;
 }
 .booking-form__input, .booking-form__select {
+  width: 100%;
   border-radius: 0.1875rem;
   padding-inline: 1.25rem 0.8125rem;
   padding-block: 0.8125rem;
@@ -3524,6 +3536,7 @@ body {
 @media (max-width: 47.99875rem) {
   .activities__aside-wrapper {
     position: absolute;
+    z-index: 2;
     min-height: 100%;
     -webkit-transform: translateX(calc(-100% - 0.625rem));
         -ms-transform: translateX(calc(-100% - 0.625rem));

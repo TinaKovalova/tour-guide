@@ -1230,9 +1230,6 @@
         display: flex;
         align-items: center;
         column-gap: toRem(10);
-        // @media (min-width: toRem(992)) {
-        //     padding-block: toRem(14) toRem(18);
-        // }
     }
     //booking__active-button
     &__active-button {
@@ -1339,6 +1336,7 @@
 
     &__input,
     &__select {
+        width: 100%;
         border-radius: toRem(3);
         padding-inline: toRem(20) toRem(13);
         padding-block: toRem(13);
@@ -1981,8 +1979,10 @@
     &__aside-wrapper {
         width: 23.0769%; /* 270/1170 */
         min-width: toRem(200);
+
         @media (max-width: toRem(767.98)) {
             position: absolute;
+            z-index: 2;
             min-height: 100%;
             transform: translateX(calc(-100% - toRem($containerPadding)));
             transition: transform 0.4s ease;
