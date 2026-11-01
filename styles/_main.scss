@@ -1947,11 +1947,23 @@
     // .activities__container
 
     &__container {
-        position: relative;
+        display: flex;
+
+        .activities__top & {
+            flex-wrap: wrap;
+            gap: toRem(15);
+        }
+        .activities__wrapper & {
+            --activities-wrapper-padding-top: clamp(0.9375rem, 0.6696rem + 1.3393vw, 1.875rem);
+            padding-block-start: var(--activities-wrapper-padding-top); /* 30/15>1440-320 */
+            padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
+            gap: toRem(20) clamp(0.9375rem, 0.6696rem + 1.3393vw, 1.875rem); /* 30/15>1440-320 */
+            @media (max-width: toRem(767.98)) {
+                flex-wrap: wrap;
+            }
+        }
+
         @media (min-width: toRem(768)) {
-            display: flex;
-            justify-content: flex-end;
-            gap: toRem(10) toRem(15);
         }
         @media (min-width: toRem(992)) {
             column-gap: toRem(30);
@@ -1961,7 +1973,7 @@
     //activities__header
     &__header {
         row-gap: toRem(10);
-        flex-basis: toRem(260);
+        flex-basis: 50%;
         @media (max-width: toRem(550)) {
             min-width: 100%;
         }
@@ -1978,36 +1990,86 @@
     }
     // activities__aside-wrapper
     &__aside-wrapper {
-        width: 23.0769%; /* 270/1170 */
-        min-width: toRem(200);
-
+        position: sticky;
+        z-index: 2;
+        top: var(--header-height);
+        min-width: toRem(250);
+        height: fit-content;
+        flex-grow: 1;
         @media (max-width: toRem(767.98)) {
-            position: absolute;
-            z-index: 2;
-            min-height: 100%;
-            transform: translateX(calc(-100% - toRem($containerPadding)));
-            transition: transform 0.4s ease;
-            &.active {
-                transform: translateX(0);
-                width: 45vw;
-                min-width: toRem(280);
+            padding-block-end: toRem(5);
+            background-color: transparent;
+            transition: background-color 0.1s ease;
+
+            &:has(.activities__filter.active) {
+                background-color: rgba(249, 250, 253, 0.8);
+                transition: background-color 0.4s ease 0.2s;
             }
         }
-        @media (max-width: toRem(479.98)) {
-            &.active {
-                width: calc(100% - toRem($containerPadding * 2));
-                min-width: calc(100% - toRem($containerPadding * 2));
+
+        // width: 23.0769%; /* 270/1170 */
+        // min-width: toRem(200);
+
+        // @media (max-width: toRem(767.98)) {
+        //     position: absolute;
+        //     z-index: 2;
+        //     min-height: 100%;
+        //     transform: translateX(calc(-100% - toRem($containerPadding)));
+        //     transition: transform 0.4s ease;
+        //     &.active {
+        //         transform: translateX(0);
+        //         width: 45vw;
+        //         min-width: toRem(280);
+        //     }
+        // }
+        // @media (max-width: toRem(479.98)) {
+        //     &.active {
+        //         width: calc(100% - toRem($containerPadding * 2));
+        //         min-width: calc(100% - toRem($containerPadding * 2));
+        //     }
+        // }
+    }
+
+    // .activities__aside-filter-button
+    &__aside-filter-button {
+        position: relative;
+        border: toRem(1) solid $mintColor;
+        background-color: $mintColor;
+        box-shadow: 0 toRem(8) toRem(20) rgba($color: $mintColor, $alpha: 0.2);
+        border-radius: toRem(3);
+        width: toRem(40);
+        height: toRem(40);
+        font-size: toRem(24);
+        font-weight: 500;
+        // position: absolute;
+        // inset-inline-start: 0;
+        // inset-inline-start: calc(100% + toRem($containerPadding));
+        // transform: translate(0, 10%);
+        transition:
+            transform 0.4s ease,
+            inset-inline-start 0.4s ease;
+        &.active {
+            background-color: rgba(255, 218, 50, 0.5);
+            inset-inline-start: calc(100%);
+            transform: translate(-110%, 10%);
+            &::before {
+                transform: rotateY(180deg);
+                content: "\e904";
             }
+        }
+        @media (max-width: toRem(767.98)) {
+            width: 100%;
+        }
+        @media (min-width: toRem(768)) {
+            display: none;
         }
     }
 
     //activities__filter
     &__filter {
-        min-width: toRem(200);
-        position: sticky;
-        top: var(--header-height);
-        z-index: 2;
+        min-width: 100%;
 
+        transition: transform 0.4s ease;
         & .booking__header {
             padding-block: 0;
         }
@@ -2023,16 +2085,26 @@
             text-transform: capitalize;
             color: $mainDarkColor;
         }
+        &.active {
+            transform: translateX(0);
+        }
+        @media (max-width: toRem(767.98)) {
+            position: absolute;
+            inset-inline-start: 0;
+            inset-block-start: 100%;
+            transform: translateX(calc(-100% - toRem($containerPadding)));
+            height: calc(100svh - var(--filter-top));
+            overflow-y: auto;
+        }
+        @media (min-width: toRem(768)) {
+            position: relative;
+            inset: auto;
+        }
     }
 
     //activities__wrapper
     &__wrapper {
         background-color: #f9fafd;
-        & .activities__container {
-            padding-block-start: toRem(30);
-            padding-block-end: clamp(1.875rem, 0.9821rem + 4.4643vw, 5rem); /* 80/30>1440-320 */
-            display: flex;
-        }
     }
 
     //activities__content
@@ -2167,37 +2239,6 @@
     background-color: #f9fafd;
     & > *:not(:last-child) {
         margin-block-end: toRem(10);
-    }
-
-    // .filter-activity__filter-active-button
-    &__filter-active-button {
-        border: toRem(1) solid rgba(255, 218, 50, 1);
-        background-color: #ffc400;
-        box-shadow: 0 toRem(8) toRem(20) rgba(255, 218, 50, 0.5);
-        border-radius: toRem(3);
-        width: toRem(40);
-        height: toRem(40);
-        font-size: toRem(24);
-        font-weight: 500;
-        position: absolute;
-        inset-inline-start: 0;
-        inset-inline-start: calc(100% + toRem($containerPadding));
-        transform: translate(0, 10%);
-        transition:
-            transform 0.4s ease,
-            inset-inline-start 0.4s ease;
-        &.active {
-            background-color: rgba(255, 218, 50, 0.5);
-            inset-inline-start: calc(100%);
-            transform: translate(-110%, 10%);
-            &::before {
-                transform: rotateY(180deg);
-                content: "\e904";
-            }
-        }
-        @media (min-width: toRem(768)) {
-            display: none;
-        }
     }
 
     // .filter-activity__details

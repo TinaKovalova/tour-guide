@@ -5,6 +5,7 @@
 @import "mixins";
 :root {
     --header-height: 0;
+    --filter-top: 0;
 }
 
 html {
@@ -12,7 +13,7 @@ html {
     :target {
         scroll-padding-top: var(--header-height);
     }
-    &:has(.video-dialog[open], .navigation.active) {
+    &:has(.video-dialog[open], .navigation.active, .activities__filter.active) {
         overflow-y: hidden;
     }
 }

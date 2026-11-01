@@ -3,73 +3,62 @@ document.addEventListener("DOMContentLoaded", () => {
     const burgerButton = document.querySelector(".burger-button");
     const header = document.querySelector(".header");
     const menu = header.querySelector(".burger-menu");
-    const videoDialog = document.querySelector("#video-dialog");
-    const videoOpenButton = document.querySelector(".hero__play-button");
     const bookingButton = document.querySelector(".booking__active-button");
     const filterActivity = document.querySelector(".filter-activity");
-    const filterActivityDetail = filterActivity?.querySelectorAll(".filter-activity__details");
-    const activityFilterButton = filterActivity?.querySelector(".filter-activity__filter-active-button");
+    const activateFilterButton = document.querySelector(".activities__aside-filter-button");
 
     burgerButton?.addEventListener("click", (e) => {
         navigation?.classList.toggle("active");
-        console.log(e.currentTarget);
         e.currentTarget.classList.toggle("burger-button--open");
     })
 
     menu?.addEventListener("click", (e) => {
-        console.dir(e.target);
         if (e.target.nodeName = "A") {
             navigation.classList.remove("active");
         }
     })
-    
+    let  headerHeight;
     window.addEventListener("load", () => {
-        const headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
-        document.documentElement.style.setProperty(
-        "--header-height",
-        `${parseFloat(headerHeight) / 16}rem`,
-      );
+      headerHeight = getComputedStyle(header).getPropertyValue("height").trim();
+      setCSSVariableValue("--header-height", headerHeight);
+      setCSSVariableValue("--filter-top", filterActivity?.getBoundingClientRect().top);
     });
   
-  
-    const mediaQueryList = window.matchMedia("(width>=768px)");
-    const mqlMatches = mediaQueryList.matches;
-    if (mqlMatches) {
-      filterActivityDetail?.forEach((detail) => {
-        detail.setAttribute("open", mqlMatches);
+    activateFilterButton?.addEventListener("click", () => {
+          filterActivity.classList.toggle("active");
       });
-    } else {
-      filterActivityDetail?.forEach((detail) => {
-        if (detail.hasAttribute("open")) {
-          detail.removeAttribute("open");
-        }
-      });
-    }
 
-    activityFilterButton?.addEventListener("click", (e) => {
-      const targetParent = e.target.closest(".activities__aside-wrapper");
-      e.target.classList.toggle("active");
-      targetParent.classList.toggle("active");
-    });
-
-    if (location.pathname ==="/tour-guide/") {
-          window.addEventListener("scroll", () => {
-            let scrollPosition =
-              window.scrollY || document.documentElement.scrollTop;
-            if (
-              scrollPosition > header.offsetHeight && header.classList.contains("header--light")) {
-              header.classList.remove("header--light");
-              header.classList.add("header--dark");
-            }
-            if (scrollPosition <= header.offsetHeight && header.classList.contains("header--dark")) {
-              header.classList.remove("header--dark");
-              header.classList.add("header--light");
-            }
-          });
-      }
-      
     
-   
+    window.addEventListener("scroll", () => {
+        if (location.pathname === "/tour-guide/") {
+        let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        if (
+          scrollPosition > header.offsetHeight &&
+          header.classList.contains("header--light")
+        ) {
+          header.classList.remove("header--light");
+          header.classList.add("header--dark");
+        }
+        if (
+          scrollPosition <= header.offsetHeight &&
+          header.classList.contains("header--dark")
+        ) {
+          header.classList.remove("header--dark");
+          header.classList.add("header--light");
+        }
+      }
+      if (
+        window.matchMedia("(width<768px)").matches) {
+        setCSSVariableValue("--filter-top", filterActivity?.getBoundingClientRect().top);
+      }
+    });
+  function setCSSVariableValue(propertyName, value) {
+    document.documentElement.style.setProperty(
+      propertyName,
+      `${parseFloat(value) / 16}rem`,
+    );
+  }
+       
     bookingButton?.addEventListener("click", (e) => {
       const bookingElement = e.target.closest(".booking");
       if (bookingElement) {
