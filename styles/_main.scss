@@ -1220,7 +1220,7 @@
     }
     @media (max-width: toRem(991.98)) {
         &.active {
-            transform: translateX(-100%);
+            transform: translateX(calc(-100% - toRem($containerPadding)));
         }
     }
 

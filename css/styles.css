@@ -2685,9 +2685,9 @@ body {
 }
 @media (max-width: 61.99875rem) {
   .booking.active {
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%);
+    -webkit-transform: translateX(calc(-100% - 0.625rem));
+        -ms-transform: translateX(calc(-100% - 0.625rem));
+            transform: translateX(calc(-100% - 0.625rem));
   }
 }
 .booking__header {
