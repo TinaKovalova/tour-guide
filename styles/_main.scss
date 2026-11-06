@@ -1198,6 +1198,9 @@
         position: sticky;
         z-index: 2;
         top: var(--header-height);
+        @media (max-width: toRem(991.98)) {
+            margin-left: toRem($containerPadding);
+        }
 
         @media (min-width: toRem(992)) {
             flex-basis: toRem(370);
@@ -1212,7 +1215,7 @@
     transition: transform 0.4s ease;
     @media (max-width: toRem(478.98)) {
         &.active {
-            min-width: 100%;
+            min-width: calc(100% + toRem($containerPadding));
         }
     }
     @media (max-width: toRem(991.98)) {
@@ -1259,7 +1262,7 @@
 
         @media (max-width: toRem(991.98)) {
             position: absolute;
-            inset-inline-start: 0;
+            inset-inline-start: toRem(-10);
             inset-block-start: toRem(3);
             transform: translateX(-100%);
             .active & {

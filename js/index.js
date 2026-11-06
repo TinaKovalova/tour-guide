@@ -52,12 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
         setCSSVariableValue("--filter-top", filterActivity?.getBoundingClientRect().top);
       }
     });
-  function setCSSVariableValue(propertyName, value) {
-    document.documentElement.style.setProperty(
-      propertyName,
-      `${parseFloat(value) / 16}rem`,
-    );
-  }
+    function setCSSVariableValue(propertyName, value) {
+      document.documentElement.style.setProperty(
+        propertyName,
+        `${parseFloat(value) / 16}rem`,
+      );
+    }
        
     bookingButton?.addEventListener("click", (e) => {
       const bookingElement = e.target.closest(".booking");

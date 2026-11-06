@@ -2656,6 +2656,11 @@ body {
   z-index: 2;
   top: var(--header-height);
 }
+@media (max-width: 61.99875rem) {
+  .tour__booking {
+    margin-left: 0.625rem;
+  }
+}
 @media (min-width: 62rem) {
   .tour__booking {
     -ms-flex-preferred-size: 23.125rem;
@@ -2675,7 +2680,7 @@ body {
 }
 @media (max-width: 29.93625rem) {
   .booking.active {
-    min-width: 100%;
+    min-width: calc(100% + 0.625rem);
   }
 }
 @media (max-width: 61.99875rem) {
@@ -2742,7 +2747,7 @@ body {
 @media (max-width: 61.99875rem) {
   .booking__active-button {
     position: absolute;
-    inset-inline-start: 0;
+    inset-inline-start: -0.625rem;
     inset-block-start: 0.1875rem;
     -webkit-transform: translateX(-100%);
         -ms-transform: translateX(-100%);
