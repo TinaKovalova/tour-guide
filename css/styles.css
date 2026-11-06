@@ -3650,7 +3650,7 @@ body {
     -webkit-transform: translateX(calc(-100% - 0.625rem));
         -ms-transform: translateX(calc(-100% - 0.625rem));
             transform: translateX(calc(-100% - 0.625rem));
-    height: calc(100svh - var(--filter-top));
+    height: calc(100dvh - var(--filter-top));
     overflow-y: auto;
   }
 }

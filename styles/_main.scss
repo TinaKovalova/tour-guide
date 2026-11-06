@@ -2096,7 +2096,7 @@
             inset-inline-start: 0;
             inset-block-start: 100%;
             transform: translateX(calc(-100% - toRem($containerPadding)));
-            height: calc(100svh - var(--filter-top));
+            height: calc(100dvh - var(--filter-top));
             overflow-y: auto;
         }
         @media (min-width: toRem(768)) {
